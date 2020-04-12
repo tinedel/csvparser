@@ -51,7 +51,7 @@ class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenProp
 
       val text = "some block of text without special characters"
       val channel: ReadableByteChannel = getChannelFromString(text, c)
-      val tokens = new SimpleTokenizer(channel, default, blockSize).tokenize().toList
+      val tokens = new SimpleTokenizer(channel, default, blockSize).toList
       concatBlocks(tokens) must contain only Block(text)
     }
 
@@ -60,7 +60,7 @@ class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenProp
 
       val text = "some block of text with field separator,record separator\nquotation mark\""
       val channel: ReadableByteChannel = getChannelFromString(text, c)
-      val tokens = new SimpleTokenizer(channel, default, blockSize).tokenize().toList
+      val tokens = new SimpleTokenizer(channel, default, blockSize).toList
       concatBlocks(tokens) must contain theSameElementsInOrderAs List(Block("some block of text with field separator"),
         FieldSeparator, Block("record separator"), RecordSeparator, Block("quotation mark"), QuotationMark)
     }
@@ -70,7 +70,7 @@ class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenProp
 
       val text = "some block of text with field separator,record separator\nquotation mark\"last bits"
       val channel: ReadableByteChannel = getChannelFromString(text, c)
-      val tokens = new SimpleTokenizer(channel, default, blockSize).tokenize().toList
+      val tokens = new SimpleTokenizer(channel, default, blockSize).toList
       concatBlocks(tokens) must contain theSameElementsInOrderAs List(Block("some block of text with field separator"),
         FieldSeparator, Block("record separator"), RecordSeparator, Block("quotation mark"), QuotationMark,
         Block("last bits"))
@@ -80,7 +80,7 @@ class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenProp
 
       val text = "break one way\nand then another\rand then first one\nagain"
       val channel: ReadableByteChannel = getChannelFromString(text, c)
-      val tokens = new SimpleTokenizer(channel, default `with` "\r" -> RecordSeparator, blockSize).tokenize().toList
+      val tokens = new SimpleTokenizer(channel, default `with` "\r" -> RecordSeparator, blockSize).toList
       concatBlocks(tokens) must contain theSameElementsInOrderAs List(Block("break one way"), RecordSeparator,
         Block("and then another"), RecordSeparator, Block("and then first one"), RecordSeparator, Block("again"))
     }
@@ -89,7 +89,7 @@ class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenProp
 
       val text = "dos\r\nbreak"
       val channel: ReadableByteChannel = getChannelFromString(text, c)
-      val tokens = new SimpleTokenizer(channel, dosLineBreaks, blockSize).tokenize().toList
+      val tokens = new SimpleTokenizer(channel, dosLineBreaks, blockSize).toList
       concatBlocks(tokens) must contain theSameElementsInOrderAs List(Block("dos"), RecordSeparator, Block("break"))
     }
   }

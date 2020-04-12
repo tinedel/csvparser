@@ -1,5 +1,3 @@
 package ua.kyiv.tinedel.csvparser.tokenizer
 
-trait Tokenizer[T] {
-  def tokenize(): Iterator[Token[T]]
-}
+trait Tokenizer[T] extends Iterator[Token[T]]
