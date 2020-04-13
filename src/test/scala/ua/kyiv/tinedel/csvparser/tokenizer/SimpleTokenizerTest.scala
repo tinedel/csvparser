@@ -1,16 +1,17 @@
 package ua.kyiv.tinedel.csvparser.tokenizer
 
-import java.io.ByteArrayInputStream
+import java.io.{ByteArrayInputStream, FileInputStream}
 import java.nio.channels.{Channels, ReadableByteChannel}
 import java.nio.charset.{Charset, StandardCharsets}
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.prop.TableDrivenPropertyChecks
+import ua.kyiv.tinedel.csvparser.{HugeFile, HugeFileTest}
 
 import scala.io.Codec
 
-class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenPropertyChecks {
+class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenPropertyChecks with HugeFile {
 
   behavior of "A simple tokenizer"
 
@@ -94,13 +95,53 @@ class SimpleTokenizerTest extends AnyFlatSpec with Matchers with TableDrivenProp
     }
   }
 
-  val default: Trie = Trie(
+  /*
+  Test create 1GiB file in /tmp directory and will run succesfully only on linux
+  and may be other Unix like systems as it uses
+  bash, /dev/urandom and dd to initially create file
+  use sbt hugeFile:test to run
+  to exclude in IntelliJ idea add "-l HugeFileTest" to test options
+  -l is -L but lowercase
+   */
+  it must "be able to deal with huge files, e.g. /dev/urandom" taggedAs HugeFileTest in withFile(1024, 1024 * 1024) { file =>
+    val channel = new FileInputStream(file).getChannel
+    try {
+      info("Read started")
+      var count = 0L
+      val time = System.currentTimeMillis()
+      var lastReport = time
+      var charCount = 0L
+      val simpleTokenizer = new SimpleTokenizer(channel, default)
+      val tokenCounts = simpleTokenizer.foldLeft(Map[Token[String], Int]().withDefault(_ => 0)) { (map, token) =>
+        if ((System.currentTimeMillis() - lastReport) > 10 * 1000) {
+          lastReport = System.currentTimeMillis()
+          info(s"${count * 1000 / (lastReport - time)} tkn/s, ${charCount * 1000 / (lastReport - time)} c/s")
+        }
+        count += 1
+        token match {
+          case Block(s) =>
+            charCount += s.length
+            map
+          case other => map + (other -> (map(other) + 1))
+        }
+      }
+
+      tokenCounts must contain key RecordSeparator
+      tokenCounts must contain key FieldSeparator
+      tokenCounts must contain key QuotationMark
+      info(s"Token read: ${tokenCounts.mkString("\n")}")
+    } finally {
+      channel.close()
+    }
+  }
+
+  private val default = Trie[Token[Nothing]](
     "\n" -> RecordSeparator,
     "," -> FieldSeparator,
     "\"" -> QuotationMark
   )
 
-  val dosLineBreaks: Trie = Trie(
+  private val dosLineBreaks = Trie[Token[Nothing]](
     "\r\n" -> RecordSeparator,
     "," -> FieldSeparator,
     "\"" -> QuotationMark

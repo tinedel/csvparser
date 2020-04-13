@@ -5,7 +5,10 @@ import org.scalatest.matchers.must.Matchers
 
 
 class TrieTest extends AnyFlatSpec with Matchers {
-  "A trie" must "be possible to populate" in {
+
+  behavior of "A trie"
+
+  it must "be possible to populate" in {
     val updatedTrie = Trie("\n" -> RecordSeparator,
       "," -> FieldSeparator,
       "\"" -> QuotationMark)
@@ -14,18 +17,25 @@ class TrieTest extends AnyFlatSpec with Matchers {
     updatedTrie.children must contain('"' -> Trie(token = Some(QuotationMark)))
   }
 
-  "A multichar trie" must "be possible to populate" in {
-    val updatedTrie = Trie()
-      .add("\r\n", RecordSeparator)
-      .add("::", FieldSeparator)
-      .add("\"", QuotationMark)
+  behavior of "A multichar trie"
+
+  it must "be possible to populate" in {
+    val updatedTrie = Trie(
+      "\r\n" -> RecordSeparator,
+      "::" -> FieldSeparator,
+      "\"" -> QuotationMark)
     updatedTrie.children must contain('\r' -> Trie(children = Map('\n' -> Trie(token = Some(RecordSeparator)))))
     updatedTrie.children must contain(':' -> Trie(children = Map(':' -> Trie(token = Some(FieldSeparator)))))
     updatedTrie.children must contain('"' -> Trie(token = Some(QuotationMark)))
   }
 
-  "A multichar trie" must "be possible to traverse" in {
-    val updatedTrie = Trie()
+  it must "detect ambiguous separators" in {
+    an[TrieException] must be thrownBy Trie(":" -> 1, "::" -> 2)
+    an[TrieException] must be thrownBy Trie("::" -> 1, ":" -> 2)
+  }
+
+  it must "be possible to traverse" in {
+    val updatedTrie = Trie[Token[Nothing]]()
       .add("\r\n", RecordSeparator)
       .add("::", FieldSeparator)
       .add(":\"", QuotationMark)
@@ -52,8 +62,8 @@ class TrieTest extends AnyFlatSpec with Matchers {
     }
   }
 
-  private def testTrie(trie: Trie, testString: String) = {
-    testString.foldLeft(Left(trie).asInstanceOf[Either[Trie, Token[Nothing]]])((e, c) => e match {
+  private def testTrie[T](trie: Trie[T], testString: String) = {
+    testString.foldLeft(Left(trie).asInstanceOf[Either[Trie[T], T]])((e, c) => e match {
       case token@Right(_) => token
       case Left(trie) if trie.nonEmpty => trie.matchChar(c)
       case _ => Left(Trie())

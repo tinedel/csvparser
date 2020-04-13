@@ -10,3 +10,13 @@ lazy val root = (project in file("."))
     name := "csvparser",
     libraryDependencies += scalaTest % Test
   )
+
+logBuffered in Test := false
+testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-l", "HugeFileTest")
+
+lazy val HugeFile = config("hugeFile").extend(Test)
+configs(HugeFile)
+inConfig(HugeFile)(Defaults.testTasks)
+
+testOptions in HugeFile -= Tests.Argument(TestFrameworks.ScalaTest, "-l", "HugeFileTest")
+testOptions in HugeFile += Tests.Argument(TestFrameworks.ScalaTest, "-n", "HugeFileTest")
