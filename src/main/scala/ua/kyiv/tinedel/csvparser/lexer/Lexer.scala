@@ -5,12 +5,32 @@ import ua.kyiv.tinedel.csvparser.tokenizer._
 import scala.annotation.tailrec
 import scala.collection.immutable.Queue
 
-trait Lexer[T] extends Iterator[Lexeme[T]] {
+/**
+ * Any iterator providing lexemes are lexer
+ */
+trait Lexer[T] extends Iterator[Lexeme[T]]
 
-}
-
+/**
+ * Thrown when lexer ended up in the unexpected state
+ *
+ * @param message describes what went wrong
+ */
 class LexerException(message: String) extends RuntimeException(message)
 
+
+/**
+ * Generic lexer consuming tokens from tokenizer and build lexemes.
+ *
+ * Lexer using final state automate when considering what lexeme it should build from token's stream
+ *
+ * <img src="src/main/doc-resources/fsa.png" />
+ *
+ * @param tokenizer iterator providing Tokens
+ * @param tokens    map of tokens to field content type used when lexer finds out it needs to add literal value of token in field
+ * @param z         empty value corresponding to the data type
+ * @param concat    way to merge to values of data type together
+ * @tparam T type contained in tokens and to be produced in fields
+ */
 class GenericCSVLexer[T](val tokenizer: Tokenizer[T],
                          val tokens: Map[Token[_], T],
                          val z: T,

@@ -1,0 +1,34 @@
+digraph G {
+    InitialState;
+    BlockState;
+    MaybeQuotedState;
+    StillNotSureIfQuotedState;
+    QuotedState;
+    MaybeBlockState;
+    FinalState;
+
+    InitialState -> BlockState [label = "Block"];
+    InitialState -> FinalState [label = "eof"];
+
+    BlockState -> BlockState [label = "Block"];
+    BlockState -> InitialState [label = "Separators"];
+    BlockState -> MaybeQuotedState [label = "Quote"];
+    BlockState -> FinalState [label = "eof"];
+
+    MaybeQuotedState -> QuotedState [label = "Block, Separators"];
+    MaybeQuotedState -> StillNotSureIfQuotedState [label = "Quote"];
+    MaybeQuotedState -> FinalState [label = "eof"];
+
+    StillNotSureIfQuotedState -> BlockState [label = "Block, Separators"];
+    StillNotSureIfQuotedState -> QuotedState [label = "Quote"];
+    StillNotSureIfQuotedState -> FinalState [label = "eof"];
+
+    QuotedState -> QuotedState [label = "Block, Separators"];
+    QuotedState -> MaybeBlockState [label = "Quote"];
+    QuotedState -> FinalState [label = "eof"];
+
+    MaybeBlockState -> QuotedState [label = "Quote"];
+    MaybeBlockState -> BlockState [label = "Block"];
+    MaybeBlockState -> InitialState [label = "Separators"];
+    MaybeBlockState -> FinalState [label = "eof"];
+}

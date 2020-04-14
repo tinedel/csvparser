@@ -20,3 +20,32 @@ inConfig(HugeFile)(Defaults.testTasks)
 
 testOptions in HugeFile -= Tests.Argument(TestFrameworks.ScalaTest, "-l", "HugeFileTest")
 testOptions in HugeFile += Tests.Argument(TestFrameworks.ScalaTest, "-n", "HugeFileTest")
+
+homepage := Some(url("https://github.com/tinedel/csvparser"))
+scmInfo := Some(ScmInfo(url("https://github.com/tindel/csvparser"),
+  "git@github.com:tinedel/csvparser.git"))
+developers := List(Developer("tinedel",
+  "Ivan Volzhev",
+  "ivolzhev@gmail.com",
+  url("https://github.com/tinedel")))
+licenses += ("MIT", url("https://www.mit.edu/~amini/LICENSE.md"))
+publishMavenStyle := true
+
+// Add sonatype repository settings
+publishTo := Some(
+  if (isSnapshot.value)
+    Opts.resolver.sonatypeSnapshots
+  else
+    Opts.resolver.sonatypeStaging
+)
+
+lazy val copyDocAssetsTask = taskKey[Unit]("Copy doc assets")
+
+copyDocAssetsTask := {
+  println("Copying doc assets")
+  val sourceDir = file("src/main/doc-resources")
+  val targetDir = (target in(Compile, doc)).value
+  IO.copyDirectory(sourceDir, targetDir)
+}
+
+copyDocAssetsTask := copyDocAssetsTask triggeredBy (doc in Compile)
