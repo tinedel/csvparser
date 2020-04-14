@@ -101,7 +101,7 @@ class SimpleLexerTest extends AnyFlatSpec with Matchers with HugeFile {
   }
 
   it must "escape fieldseparator, recordseparator and escape" in {
-    val lexer = SimpleLexer(TestTokenizer(Escape, FieldSeparator, Escape, RecordSeparator, Escape, Escape), lineSeparator = ",", fieldDelimiter = "\n")
+    val lexer = SimpleLexer(TestTokenizer(Escape, FieldSeparator, Escape, RecordSeparator, Escape, Escape), recordSeparator = ",", fieldSeparator = "\n")
     lexer.toStream must contain(Field("\n,\\"))
   }
 

@@ -25,7 +25,7 @@ class TokenizerException(message: String) extends RuntimeException(message)
  * Generic tokenizer reading from provided byte channel and wrapping received data into tokens.
  *
  * Class provides generic nio channel based implementation of tokenizer. The main functionality is performed in
- * refillBuffersAndProcess private method which tries to read from channel, decode the byte buffer using [[scala.io.Codec]]
+ * refillBuffersAndProcess private method which tries to read from channel, decode the byte buffer using Codec
  * and produce tokens of types corresponding to tokensTrie or wrap anything which do not fit in [[ua.kyiv.tinedel.csvparser.tokenizer.Block]]
  * using provided buildBlock callback
  *

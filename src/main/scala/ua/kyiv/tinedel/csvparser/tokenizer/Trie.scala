@@ -37,7 +37,7 @@ case class Trie[T](children: Map[Char, Trie[T]] = Map[Char, Trie[T]]().withDefau
   }
 
   /**
-   * Handy shortcut for [[ua.kyiv.tinedel.csvparser.tokenizer.Trie#add(s: Seq[Char], token: T)]]
+   * Handy shortcut for [[ua.kyiv.tinedel.csvparser.tokenizer.Trie#add(Seq[Char],T)]]
    * {{{
    *   val trie: Trie[Int] = buildTrie()
    *   val modifiedTrie = trie `with` ("abc" -> 5)
@@ -49,7 +49,7 @@ case class Trie[T](children: Map[Char, Trie[T]] = Map[Char, Trie[T]]().withDefau
   def `with`(p: (String, T)): Trie[T] = add(p._1, p._2)
 
   /**
-   * Handy shortcut for [[ua.kyiv.tinedel.csvparser.tokenizer.Trie#add(s: Seq[Char], token: T)]]
+   * Handy shortcut for [[ua.kyiv.tinedel.csvparser.tokenizer.Trie#add(Seq[Char],T)]]
    * {{{
    *   val trie: Trie[Int] = buildTrie()
    *   val modifiedTrie = trie + ("abc" -> 5)
