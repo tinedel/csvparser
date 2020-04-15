@@ -39,13 +39,32 @@ publishTo := Some(
     Opts.resolver.sonatypeStaging
 )
 
-lazy val copyDocAssetsTask = taskKey[Unit]("Copy doc assets")
+lazy val copyDocAssetsTask = taskKey[File]("Copy doc assets")
 
 copyDocAssetsTask := {
-  println("Copying doc assets")
+  val log = streams.value.log
+  log.info("Copying doc assets")
   val sourceDir = file("src/main/doc-resources")
   val targetDir = (target in(Compile, doc)).value
   IO.copyDirectory(sourceDir, targetDir)
+  targetDir
 }
 
-copyDocAssetsTask := copyDocAssetsTask triggeredBy (doc in Compile)
+lazy val copyDocsToRoot = taskKey[File]("Copy generated docs to docs folder")
+
+copyDocsToRoot := {
+  val log = streams.value.log
+  log.info("Copying docs to be available on github pages")
+  val sourceDir = (target in(Compile, doc)).value
+  val targetDir = file("docs")
+  IO.copyDirectory(sourceDir, targetDir)
+  sourceDir
+}
+
+(doc in Compile) := {
+  Def.sequential(
+    Compile / doc,
+    copyDocAssetsTask,
+    copyDocsToRoot
+  ).value
+}

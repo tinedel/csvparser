@@ -23,7 +23,10 @@ class LexerException(message: String) extends RuntimeException(message)
  *
  * Lexer using final state automate when considering what lexeme it should build from token's stream
  *
- * Slightly simplified graph of FSA used in lexer <img src="src/main/doc-resources/fsa.png" />
+ * Slightly simplified graph of FSA used in lexer
+ *
+ * <img src="fsa.png" style="width: 100%"/>
+ *
  * Does not include escaped block and escaped quoted block states which are essentially capture the next
  * token and convert it into block before returning to block or quoted block states
  *
