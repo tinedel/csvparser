@@ -29,6 +29,8 @@ parser.map { record =>
 }
 ```
 
+Api documentation is available on https://tinedel.github.io/csvparser
+
 ## Tunable separators
 
 Parser supports configurable line and field separators, quoting strings and optional escape characters
@@ -164,4 +166,11 @@ special strings (separators etc.) to byte representation and building tokenizati
 this decision is at some point conversion should indeed happen and it might be too late to discover anomalities.
 
 ### Not enough end to end test cases.
-* Only test case for correctness of parsing  
+* Only test case for correctness of parsing RFC complient file is included
+* All kind of irregular csv files should be added to test corner cases
+
+### Possible resource leakage
+* Some constructors do open channels/streams and do not close them. For that reason .fromChannel factory method is the best one to use.
+
+### Api documentation
+* Scaladoc is slightly incorrect. In particular `@inheritdocs` tag is not working for case objects extending the traits. And generated index start in the root package, while main package of the project is ua.kyiv.tinedel.csvparser
