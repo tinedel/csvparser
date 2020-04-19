@@ -1,4 +1,4 @@
-package ua.kyiv.tinedel.csvparser.lexer
+package ua.kyiv.tinedel.csvparser.util
 
 import ua.kyiv.tinedel.csvparser.tokenizer.{Token, Tokenizer}
 

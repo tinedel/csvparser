@@ -24,7 +24,7 @@ import scala.io.Codec
  * @param lexer  ByteSeq operating lexer
  * @param header true if file has a header
  */
-class MinimalMemoryCSVParser(val lexer: Lexer[ByteSeq],
+class MinimalMemoryCSVParser(val lexer: Lexer[ByteSeq] with Iterator[Lexeme[ByteSeq]],
                              val header: Boolean = false) extends Iterator[Map[Int, ByteSeq]] {
 
   val headerRecord: Map[Int, ByteSeq] = if (header && lexer.hasNext) next() else Map[Int, ByteSeq]()

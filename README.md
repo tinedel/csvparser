@@ -125,7 +125,7 @@ The project uses sbt as a build tool.
 ```
 
 ### Huge file tests
-Huge file tests will run successfully exclusively on Linux machines were bash, dd and tr utilities are available and 
+Huge file tests will run successfully exclusively on Linux machines where bash, dd and tr utilities are available and 
 /dev/urandom is accessible.
 Tests generate random data into file up to 1GiB and try to read the files using lexer, tokenizer and parser printing some
 statistics on the way.

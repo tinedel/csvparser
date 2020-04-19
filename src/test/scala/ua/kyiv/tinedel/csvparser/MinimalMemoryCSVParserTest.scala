@@ -5,6 +5,7 @@ import java.nio.ByteBuffer
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
+import ua.kyiv.tinedel.csvparser.util.{HugeFile, HugeFileTest}
 
 import scala.io.Codec
 

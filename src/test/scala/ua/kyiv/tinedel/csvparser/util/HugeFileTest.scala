@@ -1,4 +1,4 @@
-package ua.kyiv.tinedel.csvparser
+package ua.kyiv.tinedel.csvparser.util
 
 import java.io.File
 

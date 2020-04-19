@@ -32,7 +32,7 @@ import scala.io.Codec
  * @param lexer  provides lexemes
  * @param header indicates the header must be parsed and stored as headerRow
  */
-class RelaxedCSVParser(val lexer: Lexer[String],
+class RelaxedCSVParser(val lexer: Lexer[String] with Iterator[Lexeme[String]],
                        val header: Boolean = false) extends Iterator[Map[Int, String]] {
 
   val headerRecord: Map[Int, String] = if (header && lexer.hasNext) next() else Map[Int, String]()

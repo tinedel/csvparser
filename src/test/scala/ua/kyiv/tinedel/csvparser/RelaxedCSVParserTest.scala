@@ -7,6 +7,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 import ua.kyiv.tinedel.csvparser.lexer.{Field, FieldBreak, RecordBreak}
 import ua.kyiv.tinedel.csvparser.tokenizer.TokenizerException
+import ua.kyiv.tinedel.csvparser.util.{HugeFile, HugeFileTest, TestLexer}
 
 import scala.io.Codec
 

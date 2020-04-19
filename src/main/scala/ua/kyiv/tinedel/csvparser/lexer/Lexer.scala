@@ -8,7 +8,9 @@ import scala.collection.immutable.Queue
 /**
  * Any iterator providing lexemes are lexer
  */
-trait Lexer[T] extends Iterator[Lexeme[T]]
+trait Lexer[T] {
+  def lexemesStream(tokens: Stream[Token[T]]): Stream[Lexeme[T]]
+}
 
 /**
  * Thrown when lexer ended up in the unexpected state
@@ -44,7 +46,7 @@ class LexerException(message: String) extends RuntimeException(message)
 class GenericCSVLexer[T](val tokenizer: Tokenizer[T],
                          val tokens: Map[Token[_], T],
                          val z: T,
-                         val concat: (T, T) => T) extends Lexer[T] {
+                         val concat: (T, T) => T) extends Lexer[T] with Iterator[Lexeme[T]] {
 
   /**
    * Stores current state and accumulated blocks waiting to form a field
@@ -327,5 +329,9 @@ class GenericCSVLexer[T](val tokenizer: Tokenizer[T],
 
       res
     }
+  }
+
+  override def lexemesStream(tokens: Stream[Token[T]]): Stream[Lexeme[T]] = {
+    this.toStream
   }
 }

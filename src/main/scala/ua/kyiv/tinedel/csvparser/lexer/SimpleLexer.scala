@@ -9,7 +9,7 @@ import ua.kyiv.tinedel.csvparser.tokenizer._
  * @param tokenizer iterator providing Tokens
  * @param tokens    map of tokens to field content type used when lexer finds out it needs to add literal value of token in field
  */
-class SimpleLexer private(tokenizer: Tokenizer[String], tokens: Map[Token[_], String])
+class SimpleLexer private[csvparser](tokenizer: Tokenizer[String], tokens: Map[Token[_], String])
   extends GenericCSVLexer[String](tokenizer, tokens, "", (a, b) => a + b)
 
 /**

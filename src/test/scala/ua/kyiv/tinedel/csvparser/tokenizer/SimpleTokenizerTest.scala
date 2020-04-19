@@ -7,7 +7,7 @@ import java.nio.charset.{Charset, StandardCharsets}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.prop.TableDrivenPropertyChecks
-import ua.kyiv.tinedel.csvparser.{HugeFile, HugeFileTest}
+import ua.kyiv.tinedel.csvparser.util.{HugeFile, HugeFileTest}
 
 import scala.io.Codec
 
