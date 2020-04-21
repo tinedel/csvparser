@@ -3,6 +3,8 @@ package ua.kyiv.tinedel.csvparser.lexer.immutable
 import ua.kyiv.tinedel.csvparser.lexer._
 import ua.kyiv.tinedel.csvparser.tokenizer._
 
+import scala.collection.immutable.Stream.Empty
+
 
 class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
                         val z: T,
@@ -10,23 +12,22 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
 
 
   override def lexemesStream(tokens: Stream[Token[T]]): Stream[Lexeme[T]] = {
-    Stream.iterate[LexerState](InitialState(tokens))(_.next())
+    InitialState().nextStream(tokens)
       .takeWhile({
         case FinalState(lexemes) => lexemes.nonEmpty
         case _ => true
       })
       .collect({
-        case InitialState(_, _, lexemes) if lexemes.nonEmpty => lexemes
+        case InitialState(_, lexemes) if lexemes.nonEmpty => lexemes
         case FinalState(lexemes) if lexemes.nonEmpty => lexemes
       }).flatten
   }
 
   sealed trait LexerState {
-    def tokens: Stream[Token[T]]
 
     def buffer: List[Block[T]]
 
-    def lexemes: List[Lexeme[T]]
+    def lexemes: List[Lexeme[T]] = Nil
 
     protected def concatBlocks(tokens: List[Block[T]]): List[Field[T]] = {
       tokens
@@ -42,69 +43,83 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
       case Stream.Empty => FinalState(concatBlocks(buffer))
     }
 
-    def next(): LexerState
-  }
+    val fieldSeparator: PartialFunction[Stream[Token[T]], LexerState] = {
+      case FieldSeparator #:: tail => InitialState(Nil, concatBlocks(buffer) :+ FieldBreak)
+    }
 
-  /**
-   * @inheritdoc
-   */
-  case class InitialState(tokens: Stream[Token[T]], buffer: List[Block[T]] = Nil, lexemes: List[Lexeme[T]] = Nil) extends LexerState {
-    override def next(): LexerState = tokens match {
-      case Stream.Empty => FinalState(concatBlocks(buffer))
-      case (b@Block(_)) #:: tail => InitialState(tail, b :: buffer, Nil)
-      case QuotationMark #:: tail => MaybeQuotedState(tail, buffer, Nil)
-      case FieldSeparator #:: tail => InitialState(tail, Nil, concatBlocks(buffer) :+ FieldBreak)
-      case RecordSeparator #:: tail => InitialState(tail, Nil, concatBlocks(buffer) :+ RecordBreak)
-      case Escape #:: tail => EscapeState(tail, buffer, Nil)
+    val recordSeparator: PartialFunction[Stream[Token[T]], LexerState] = {
+      case RecordSeparator #:: tail => InitialState(Nil, concatBlocks(buffer) :+ RecordBreak)
+    }
+
+    def nextState(tokens: Stream[Token[T]]): LexerState
+
+    def nextStream(tokens: Stream[Token[T]]): Stream[LexerState] = {
+      val ns = nextState(tokens)
+      ns match {
+        case FinalState(_) => ns #:: Empty
+        case _ => ns #:: ns.nextStream(tokens.tail)
+      }
     }
   }
 
   /**
    * @inheritdoc
    */
-  case class EscapeState(tokens: Stream[Token[T]], buffer: List[Block[T]], lexemes: List[Lexeme[T]]) extends LexerState {
-    override def next(): LexerState = tokens match {
+  case class InitialState(buffer: List[Block[T]] = Nil, override val lexemes: List[Lexeme[T]] = Nil) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = tokens matchComposite (
+      emptyStream orElse fieldSeparator orElse recordSeparator orElse {
+        case (b@Block(_)) #:: _ => InitialState(b :: buffer, Nil)
+        case QuotationMark #:: _ => MaybeQuotedState(buffer)
+        case Escape #:: _ => EscapeState(buffer)
+      })
+  }
+
+  /**
+   * @inheritdoc
+   */
+  case class EscapeState(buffer: List[Block[T]]) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = tokens match {
       case Stream.Empty => FinalState(concatBlocks(buffer))
-      case (b@Block(_)) #:: tail => InitialState(tail, b :: buffer, Nil)
-      case (t: Token[_]) #:: tail => InitialState(tail, Block(tokenMap(t)) :: buffer, Nil)
+      case (b@Block(_)) #:: _ => InitialState(b :: buffer, Nil)
+      case (t: Token[_]) #:: _ => InitialState(Block(tokenMap(t)) :: buffer, Nil)
     }
   }
 
   /**
    * @inheritdoc
    */
-  case class QuotedEscapeState(tokens: Stream[Token[T]], buffer: List[Block[T]], lexemes: List[Lexeme[T]]) extends LexerState {
-    override def next(): LexerState = tokens match {
+  case class QuotedEscapeState(buffer: List[Block[T]]) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = tokens match {
       case Stream.Empty => FinalState(concatBlocks(buffer))
-      case (b@Block(_)) #:: tail => QuotedState(tail, b :: buffer, Nil)
-      case (t: Token[_]) #:: tail => QuotedState(tail, Block(tokenMap(t)) :: buffer, Nil)
+      case (b@Block(_)) #:: _ => QuotedState(b :: buffer)
+      case (t: Token[_]) #:: _ => QuotedState(Block(tokenMap(t)) :: buffer)
     }
   }
 
   /**
    * @inheritdoc
    */
-  case class MaybeQuotedState(tokens: Stream[Token[T]], buffer: List[Block[T]], lexemes: List[Lexeme[T]]) extends LexerState {
-    override def next(): LexerState = tokens match {
+  case class MaybeQuotedState(buffer: List[Block[T]]) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = tokens match {
       case Stream.Empty => FinalState(concatBlocks(buffer))
-      case (b@Block(_)) #:: tail => QuotedState(tail, b :: buffer, Nil)
-      case QuotationMark #:: tail => StillNotSureIfQuotedState(tail, buffer, Nil)
-      case Escape #:: tail => QuotedEscapeState(tail, buffer, Nil)
-      case (t: Token[_]) #:: tail => QuotedState(tail, Block(tokenMap(t)) :: buffer, Nil)
+      case (b@Block(_)) #:: _ => QuotedState(b :: buffer)
+      case QuotationMark #:: _ => StillNotSureIfQuotedState(buffer)
+      case Escape #:: _ => QuotedEscapeState(buffer)
+      case (t: Token[_]) #:: _ => QuotedState(Block(tokenMap(t)) :: buffer)
     }
   }
 
   /**
    * @inheritdoc
    */
-  case class StillNotSureIfQuotedState(tokens: Stream[Token[T]], buffer: List[Block[T]], lexemes: List[Lexeme[T]]) extends LexerState {
-    override def next(): LexerState = tokens match {
+  case class StillNotSureIfQuotedState(buffer: List[Block[T]]) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = tokens match {
       case Stream.Empty => FinalState(concatBlocks(Block(z) :: buffer))
-      case (b@Block(_)) #:: tail => InitialState(tail, b :: buffer, Nil)
-      case QuotationMark #:: tail => QuotedState(tail, Block(tokenMap(QuotationMark)) :: buffer, Nil)
-      case Escape #:: tail => EscapeState(tail, buffer, Nil)
-      case FieldSeparator #:: tail => InitialState(tail, Nil, concatBlocks(buffer) :+ FieldBreak)
-      case RecordSeparator #:: tail => InitialState(tail, Nil, concatBlocks(buffer) :+ RecordBreak)
+      case (b@Block(_)) #:: _ => InitialState(b :: buffer, Nil)
+      case QuotationMark #:: _ => QuotedState(Block(tokenMap(QuotationMark)) :: buffer)
+      case Escape #:: _ => EscapeState(buffer)
+      case FieldSeparator #:: _ => InitialState(Nil, concatBlocks(buffer) :+ FieldBreak)
+      case RecordSeparator #:: _ => InitialState(Nil, concatBlocks(buffer) :+ RecordBreak)
     }
   }
 
@@ -112,27 +127,27 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
   /**
    * @inheritdoc
    */
-  case class MaybeBlockState(tokens: Stream[Token[T]], buffer: List[Block[T]], lexemes: List[Lexeme[T]]) extends LexerState {
-    override def next(): LexerState = tokens match {
+  case class MaybeBlockState(buffer: List[Block[T]]) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = tokens match {
       case Stream.Empty => FinalState(concatBlocks(buffer))
-      case (b@Block(_)) #:: tail => InitialState(tail, b :: buffer, Nil)
-      case QuotationMark #:: tail => QuotedState(tail, Block(tokenMap(QuotationMark)) :: buffer, Nil)
-      case FieldSeparator #:: tail => InitialState(tail, Nil, concatBlocks(buffer) :+ FieldBreak)
-      case RecordSeparator #:: tail => InitialState(tail, Nil, concatBlocks(buffer) :+ RecordBreak)
-      case Escape #:: tail => EscapeState(tail, buffer, Nil)
+      case (b@Block(_)) #:: _ => InitialState(b :: buffer, Nil)
+      case QuotationMark #:: _ => QuotedState(Block(tokenMap(QuotationMark)) :: buffer)
+      case FieldSeparator #:: _ => InitialState(Nil, concatBlocks(buffer) :+ FieldBreak)
+      case RecordSeparator #:: _ => InitialState(Nil, concatBlocks(buffer) :+ RecordBreak)
+      case Escape #:: _ => EscapeState(buffer)
     }
   }
 
   /**
    * @inheritdoc
    */
-  case class QuotedState(tokens: Stream[Token[T]], buffer: List[Block[T]], lexemes: List[Lexeme[T]]) extends LexerState {
-    override def next(): LexerState = tokens match {
+  case class QuotedState(buffer: List[Block[T]]) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = tokens match {
       case Stream.Empty => FinalState(concatBlocks(buffer))
-      case (b@Block(_)) #:: tail => QuotedState(tail, b :: buffer, Nil)
-      case QuotationMark #:: tail => MaybeBlockState(tail, buffer, Nil)
-      case Escape #:: tail => QuotedEscapeState(tail, buffer, Nil)
-      case (t: Token[_]) #:: tail => QuotedState(tail, Block(tokenMap(t)) :: buffer, Nil)
+      case (b@Block(_)) #:: _ => QuotedState(b :: buffer)
+      case QuotationMark #:: _ => MaybeBlockState(buffer)
+      case Escape #:: _ => QuotedEscapeState(buffer)
+      case (t: Token[_]) #:: _ => QuotedState(Block(tokenMap(t)) :: buffer)
 
     }
   }
@@ -140,10 +155,8 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
   /**
    * @inheritdoc
    */
-  case class FinalState(lexemes: List[Lexeme[T]]) extends LexerState {
-    override def next(): LexerState = FinalState(Nil)
-
-    override def tokens: Stream[Token[T]] = Stream.Empty
+  case class FinalState(override val lexemes: List[Lexeme[T]]) extends LexerState {
+    override def nextState(tokens: Stream[Token[T]]): LexerState = FinalState(Nil)
 
     override def buffer: List[Block[T]] = Nil
   }

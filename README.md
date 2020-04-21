@@ -147,7 +147,7 @@ for a while to make it uniform and concise.
 * Almost all objects in implementation are iterators and thus have state. If they'd be read from different threads it will procduce
 inconsistent results. Making parser thread safe is a matter of hiding constructor and making sure lexer is owned by parser but it
 haven't been done yet.
-* Making truly immutable parser is hard as e.g. 
+* Making the truly immutable parser is hard as e.g. 
 ```scala
 val parser1 = getParser
 val parser2 = parser1
