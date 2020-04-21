@@ -164,7 +164,7 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
 }
 
 /**
- * Factory object producing SimpleLexers
+ * Factory object producing ImmutableLexers
  */
 object ImmutableLexer {
   /**
