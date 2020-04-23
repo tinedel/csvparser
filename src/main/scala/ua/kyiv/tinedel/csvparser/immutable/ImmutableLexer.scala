@@ -1,4 +1,4 @@
-package ua.kyiv.tinedel.csvparser.lexer.immutable
+package ua.kyiv.tinedel.csvparser.immutable
 
 import ua.kyiv.tinedel.csvparser.lexer._
 import ua.kyiv.tinedel.csvparser.tokenizer._
@@ -168,13 +168,13 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
  */
 object ImmutableLexer {
   /**
-   * Creates [[ua.kyiv.tinedel.csvparser.lexer.immutable.ImmutableLexer]] from provided parameters
+   * Creates [[ImmutableLexer]] from provided parameters
    *
    * @param quotingString   string for quoting fields
    * @param recordSeparator string separating records
    * @param fieldSeparator  string separating fields
    * @param escapeString    optional escape string to enable escaping support which is not standard
-   * @return configured [[ua.kyiv.tinedel.csvparser.lexer.immutable.ImmutableLexer]]
+   * @return configured [[ImmutableLexer]]
    */
   def apply(quotingString: String = "\"",
             recordSeparator: String = "\n",

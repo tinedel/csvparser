@@ -143,8 +143,7 @@ trait LexerBehaviors {
     }
   }
 
-  def correctLexerWithHugeFiles[T](tokenizerFromFile: File => Tokenizer[T],
-                                   lexerFromTokenizer: Tokenizer[T] => Lexer[T],
+  def correctLexerWithHugeFiles[T](lexer: File => Stream[Lexeme[T]],
                                    cleanup: => Unit): Unit = {
     /* Test create 1GiB file in /tmp directory and will run succesfully only on linux
     and may be other Unix like systems as it uses
@@ -163,8 +162,7 @@ trait LexerBehaviors {
         val time = System.currentTimeMillis()
         var lastReport = time
         var charCount = 0L
-        val simpleTokenizer = tokenizerFromFile(file)
-        val lexemeCounts = lexerFromTokenizer(simpleTokenizer).lexemesStream(simpleTokenizer.toStream)
+        val lexemeCounts = lexer(file)
           .foldLeft(Map[Lexeme[T], Int]().withDefault(_ => 0)) { (map, lexeme) =>
             if ((System.currentTimeMillis() - lastReport) > 10 * 1000) {
               lastReport = System.currentTimeMillis()

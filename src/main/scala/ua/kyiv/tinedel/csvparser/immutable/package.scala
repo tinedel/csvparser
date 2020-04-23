@@ -1,4 +1,4 @@
-package ua.kyiv.tinedel.csvparser.lexer
+package ua.kyiv.tinedel.csvparser
 
 package object immutable {
 

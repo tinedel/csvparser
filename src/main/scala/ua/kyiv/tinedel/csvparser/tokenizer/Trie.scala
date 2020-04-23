@@ -23,6 +23,9 @@ case class Trie[T](children: Map[Char, Trie[T]] = Map[Char, Trie[T]]().withDefau
   /**
    * Creates a copy of this Trie with string `s` being added
    *
+   * Not tailrec as it is going to be used once at the start of the tokenizing
+   * And lengthy tokens are unlikely, so it's possible to keep it simple
+   *
    * @param s     string to add implicitly converted to Seq[Char] to descent easier
    * @param token data to store
    * @return Trie with all the data in this Trie plus data given as parameters

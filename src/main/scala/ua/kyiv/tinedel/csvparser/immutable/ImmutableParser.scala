@@ -1,4 +1,4 @@
-package ua.kyiv.tinedel.csvparser.lexer.immutable
+package ua.kyiv.tinedel.csvparser.immutable
 
 import ua.kyiv.tinedel.csvparser.lexer.{Field, FieldBreak, Lexeme, RecordBreak}
 

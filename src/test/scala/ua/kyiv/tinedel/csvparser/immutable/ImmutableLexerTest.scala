@@ -1,13 +1,12 @@
-package ua.kyiv.tinedel.csvparser.lexer.immutable
-
-import java.io.FileInputStream
-import java.nio.channels.ReadableByteChannel
+package ua.kyiv.tinedel.csvparser.immutable
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 import ua.kyiv.tinedel.csvparser.lexer.{Lexeme, LexerBehaviors}
-import ua.kyiv.tinedel.csvparser.tokenizer.{SimpleTokenizer, Token, Tokenizer}
+import ua.kyiv.tinedel.csvparser.tokenizer.{Token, Tokenizer}
 import ua.kyiv.tinedel.csvparser.util.HugeFile
+
+import scala.io.Source
 
 class ImmutableLexerTest extends AnyFlatSpec with Matchers with HugeFile with LexerBehaviors {
 
@@ -23,13 +22,12 @@ class ImmutableLexerTest extends AnyFlatSpec with Matchers with HugeFile with Le
   it must behave like correctLexer(t => lexer.lexemesStream(t.toStream))
   it must behave like correctLexerWithCustomTokens(m => buildLexing(m))
 
-  var openedChannel: Option[ReadableByteChannel] = None
+  var openedChannel: Option[Source] = None
 
   it must behave like correctLexerWithHugeFiles[String](
     file => {
-      openedChannel = Some(new FileInputStream(file).getChannel)
-      SimpleTokenizer(openedChannel.get)
+      openedChannel = Some(Source.fromFile(file))
+      ImmutableLexer().lexemesStream(ImmutableTokenizer().tokenize(openedChannel.get))
     },
-    _ => ImmutableLexer(),
     openedChannel.foreach(_.close()))
 }

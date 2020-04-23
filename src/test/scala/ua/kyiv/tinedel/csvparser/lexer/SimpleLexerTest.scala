@@ -19,9 +19,11 @@ class SimpleLexerTest extends AnyFlatSpec with Matchers with HugeFile with Lexer
   it must behave like correctLexerWithHugeFiles[String](
     file => {
       openedChannel = Some(new FileInputStream(file).getChannel)
-      SimpleTokenizer(openedChannel.get)
+      val tokenizer = SimpleTokenizer(openedChannel.get)
+      SimpleLexer(
+        tokenizer
+      ).lexemesStream(tokenizer.toStream)
     },
-    SimpleLexer(_),
     openedChannel.foreach(_.close()))
 
 }
