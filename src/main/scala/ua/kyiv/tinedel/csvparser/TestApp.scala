@@ -20,7 +20,7 @@ object TestApp {
   implicit val codec: Codec = Codec.UTF8.onMalformedInput(CodingErrorAction.IGNORE)
     .onUnmappableCharacter(CodingErrorAction.IGNORE)
 
-  def parseImmutably(fis: FileInputStream): Stream[Map[Int, String]] = {
+  final def parseImmutably(fis: FileInputStream): Stream[Map[Int, String]] = {
     new ImmutableParser[String]("").records(
       ImmutableLexer().lexemesStream(
         ImmutableTokenizer().tokenize(Source.fromInputStream(fis))
@@ -28,11 +28,11 @@ object TestApp {
     )
   }
 
-  def parseRelaxed(fis: FileInputStream): Stream[Map[Int, String]] = {
+  final def parseRelaxed(fis: FileInputStream): Stream[Map[Int, String]] = {
     RelaxedCSVParser.fromStream(fis).toStream
   }
 
-  def process(recordsStream: Stream[Map[Int, String]]): Unit = {
+  final def process(recordsStream: Stream[Map[Int, String]]): Unit = {
     val time = System.currentTimeMillis()
     val (records, fields, _) = recordsStream.foldLeft((0L, 0L, time)) {
       case ((records, fields, lastReportTime), record) if System.currentTimeMillis() - lastReportTime > 30000 =>

@@ -11,7 +11,7 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
                         val concat: (T, T) => T) extends Lexer[T] {
 
 
-  override def lexemesStream(tokens: Stream[Token[T]]): Stream[Lexeme[T]] = {
+  final override def lexemesStream(tokens: Stream[Token[T]]): Stream[Lexeme[T]] = {
     InitialState().nextStream(tokens)
       .takeWhile({
         case FinalState(lexemes) => lexemes.nonEmpty
@@ -53,7 +53,7 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
 
     def nextState(tokens: Stream[Token[T]]): LexerState
 
-    def nextStream(tokens: Stream[Token[T]]): Stream[LexerState] = {
+    final def nextStream(tokens: Stream[Token[T]]): Stream[LexerState] = {
       val ns = nextState(tokens)
       ns match {
         case FinalState(_) => ns #:: Empty

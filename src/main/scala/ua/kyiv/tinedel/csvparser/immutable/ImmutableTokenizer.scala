@@ -5,7 +5,7 @@ import ua.kyiv.tinedel.csvparser.tokenizer._
 import scala.io.{Codec, Source}
 
 class ImmutableTokenizer(val rootTrie: Trie[Token[Nothing]]) {
-  def tokenize(source: Source): Stream[Token[String]] = {
+  final def tokenize(source: Source): Stream[Token[String]] = {
     tokenize(source.toStream)
   }
 
@@ -17,14 +17,12 @@ class ImmutableTokenizer(val rootTrie: Trie[Token[Nothing]]) {
       }).filterNot(_._2.isEmpty)
   }
 
-  def tokenize(stream: Stream[Char]): Stream[Token[String]] = {
+  final def tokenize(stream: Stream[Char]): Stream[Token[String]] = {
 
     def tokenizeInt(s: Stream[Char],
                     maybeTokens: List[(Int, Trie[Token[Nothing]])],
                     sb: List[Char]): Stream[Token[String]] = s match {
-      // true end of stream, all buffers are empty
       case Stream.Empty if sb.isEmpty && maybeTokens.isEmpty => Stream.empty
-      // some leftovers in stringbuilder
       case Stream.Empty if sb.nonEmpty => Block(sb.reverse.mkString) #:: Stream.empty
 
       case c #:: tail =>

@@ -19,7 +19,7 @@ class ImmutableParser[T](z: T) {
     composeRecordInt(record, 1, seenField = false, Map())
   }
 
-  def records(stream: Stream[Lexeme[T]]): Stream[Map[Int, T]] = {
+  final def records(stream: Stream[Lexeme[T]]): Stream[Map[Int, T]] = {
     if (stream.isEmpty) {
       Stream.empty
     } else {
@@ -32,7 +32,7 @@ class ImmutableParser[T](z: T) {
     }
   }
 
-  def withHeader(stream: Stream[Lexeme[T]]): (Option[Map[Int, T]], Stream[Map[Int, T]]) = {
+  final def withHeader(stream: Stream[Lexeme[T]]): (Option[Map[Int, T]], Stream[Map[Int, T]]) = {
     val r = records(stream)
     (r.headOption, r.drop(1))
   }
