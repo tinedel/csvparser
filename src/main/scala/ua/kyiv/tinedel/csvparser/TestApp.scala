@@ -28,11 +28,11 @@ object TestApp {
     )
   }
 
-  final def parseRelaxed(fis: FileInputStream): Stream[Map[Int, String]] = {
-    RelaxedCSVParser.fromStream(fis).toStream
+  final def parseRelaxed(fis: FileInputStream): Iterator[Map[Int, String]] = {
+    RelaxedCSVParser.fromStream(fis)
   }
 
-  final def process(recordsStream: Stream[Map[Int, String]]): Unit = {
+  final def process(recordsStream: Iterator[Iterable[_]]): Unit = {
     val time = System.currentTimeMillis()
     val (records, fields, _) = recordsStream.foldLeft((0L, 0L, time)) {
       case ((records, fields, lastReportTime), record) if System.currentTimeMillis() - lastReportTime > 30000 =>
@@ -63,17 +63,20 @@ object TestApp {
     }
   }
 
+  // for testing infinite streams
+  final def infiniteStream(): Iterator[List[Long]] = Stream.iterate(List(1L))(_.map(i => i + 1)).iterator
+
   def main(args: Array[String]): Unit = {
     val (file, parserClassName) = parseArgs(args)
     val fis = new FileInputStream(file)
     try {
-      val recordsStream = parserClassName match {
-        case "ImmutableParser" => parseImmutably(fis)
-        case "RelaxedCSVParser" => parseRelaxed(fis)
-      }
 
       println(s"Processing ${formatSize(file.length())} with $parserClassName")
-      process(recordsStream)
+      process(parserClassName match {
+        case "ImmutableParser" => parseImmutably(fis).iterator
+        case "RelaxedCSVParser" => parseRelaxed(fis)
+        case "InfinityStream" => infiniteStream()
+      })
 
     } finally {
       fis.close()
