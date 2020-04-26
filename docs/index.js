@@ -225,8 +225,14 @@ Index.PACKAGES = {
             "label": "GroupedIterator",
             "tail": "",
             "member": "scala.collection.Iterator.GroupedIterator",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/GenericCSVLexer.html#GroupedIterator[B<:<?>]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/GenericCSVLexer.html#GroupedIterator[B>:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]",
             "kind": "class"
+        }, {
+            "label": "lexemesStream",
+            "tail": "(tokens: Stream[Token[T]]): Stream[Lexeme[T]]",
+            "member": "ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.lexemesStream",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/GenericCSVLexer.html#lexemesStream(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):Stream[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]",
+            "kind": "def"
         }, {
             "label": "next",
             "tail": "(): Lexeme[T]",
@@ -1118,552 +1124,6 @@ Index.PACKAGES = {
     }, {
         "name": "ua.kyiv.tinedel.csvparser.lexer.Lexer",
         "members_trait": [{
-            "label": "GroupedIterator",
-            "tail": "",
-            "member": "scala.collection.Iterator.GroupedIterator",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#GroupedIterator[B>:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]",
-            "kind": "class"
-        }, {
-            "label": "toString",
-            "tail": "(): String",
-            "member": "scala.collection.Iterator.toString",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toString():String",
-            "kind": "def"
-        }, {
-            "label": "toStream",
-            "tail": "(): Stream[Lexeme[T]]",
-            "member": "scala.collection.Iterator.toStream",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toStream:scala.collection.immutable.Stream[A]",
-            "kind": "def"
-        }, {
-            "label": "toIterator",
-            "tail": "(): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.toIterator",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toIterator:Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "toTraversable",
-            "tail": "(): Traversable[Lexeme[T]]",
-            "member": "scala.collection.Iterator.toTraversable",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toTraversable:Traversable[A]",
-            "kind": "def"
-        }, {
-            "label": "sameElements",
-            "tail": "(that: Iterator[_]): Boolean",
-            "member": "scala.collection.Iterator.sameElements",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#sameElements(that:Iterator[_]):Boolean",
-            "kind": "def"
-        }, {
-            "label": "copyToArray",
-            "tail": "(xs: Array[B], start: Int, len: Int): Unit",
-            "member": "scala.collection.Iterator.copyToArray",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#copyToArray[B>:A](xs:Array[B],start:Int,len:Int):Unit",
-            "kind": "def"
-        }, {
-            "label": "patch",
-            "tail": "(from: Int, patchElems: Iterator[B], replaced: Int): Iterator[B]",
-            "member": "scala.collection.Iterator.patch",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#patch[B>:A](from:Int,patchElems:Iterator[B],replaced:Int):Iterator[B]",
-            "kind": "def"
-        }, {
-            "label": "duplicate",
-            "tail": "(): (Iterator[Lexeme[T]], Iterator[Lexeme[T]])",
-            "member": "scala.collection.Iterator.duplicate",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#duplicate:(Iterator[A],Iterator[A])",
-            "kind": "def"
-        }, {
-            "label": "length",
-            "tail": "(): Int",
-            "member": "scala.collection.Iterator.length",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#length:Int",
-            "kind": "def"
-        }, {
-            "label": "sliding",
-            "tail": "(size: Int, step: Int): GroupedIterator[B]",
-            "member": "scala.collection.Iterator.sliding",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#sliding[B>:A](size:Int,step:Int):Iterator.this.GroupedIterator[B]",
-            "kind": "def"
-        }, {
-            "label": "grouped",
-            "tail": "(size: Int): GroupedIterator[B]",
-            "member": "scala.collection.Iterator.grouped",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#grouped[B>:A](size:Int):Iterator.this.GroupedIterator[B]",
-            "kind": "def"
-        }, {
-            "label": "buffered",
-            "tail": "(): BufferedIterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.buffered",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#buffered:scala.collection.BufferedIterator[A]",
-            "kind": "def"
-        }, {
-            "label": "indexOf",
-            "tail": "(elem: B, from: Int): Int",
-            "member": "scala.collection.Iterator.indexOf",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#indexOf[B>:A](elem:B,from:Int):Int",
-            "kind": "def"
-        }, {
-            "label": "indexOf",
-            "tail": "(elem: B): Int",
-            "member": "scala.collection.Iterator.indexOf",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#indexOf[B>:A](elem:B):Int",
-            "kind": "def"
-        }, {
-            "label": "indexWhere",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean, from: Int): Int",
-            "member": "scala.collection.Iterator.indexWhere",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#indexWhere(p:A=>Boolean,from:Int):Int",
-            "kind": "def"
-        }, {
-            "label": "indexWhere",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Int",
-            "member": "scala.collection.Iterator.indexWhere",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#indexWhere(p:A=>Boolean):Int",
-            "kind": "def"
-        }, {
-            "label": "find",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Option[Lexeme[T]]",
-            "member": "scala.collection.Iterator.find",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#find(p:A=>Boolean):Option[A]",
-            "kind": "def"
-        }, {
-            "label": "contains",
-            "tail": "(elem: Any): Boolean",
-            "member": "scala.collection.Iterator.contains",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#contains(elem:Any):Boolean",
-            "kind": "def"
-        }, {
-            "label": "exists",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Boolean",
-            "member": "scala.collection.Iterator.exists",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#exists(p:A=>Boolean):Boolean",
-            "kind": "def"
-        }, {
-            "label": "forall",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Boolean",
-            "member": "scala.collection.Iterator.forall",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#forall(p:A=>Boolean):Boolean",
-            "kind": "def"
-        }, {
-            "label": "foreach",
-            "tail": "(f: (Lexeme[T]) ⇒ U): Unit",
-            "member": "scala.collection.Iterator.foreach",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#foreach[U](f:A=>U):Unit",
-            "kind": "def"
-        }, {
-            "label": "zipAll",
-            "tail": "(that: Iterator[B], thisElem: A1, thatElem: B1): Iterator[(A1, B1)]",
-            "member": "scala.collection.Iterator.zipAll",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#zipAll[B,A1>:A,B1>:B](that:Iterator[B],thisElem:A1,thatElem:B1):Iterator[(A1,B1)]",
-            "kind": "def"
-        }, {
-            "label": "zipWithIndex",
-            "tail": "(): Iterator[(Lexeme[T], Int)]",
-            "member": "scala.collection.Iterator.zipWithIndex",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#zipWithIndex:Iterator[(A,Int)]",
-            "kind": "def"
-        }, {
-            "label": "padTo",
-            "tail": "(len: Int, elem: A1): Iterator[A1]",
-            "member": "scala.collection.Iterator.padTo",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#padTo[A1>:A](len:Int,elem:A1):Iterator[A1]",
-            "kind": "def"
-        }, {
-            "label": "zip",
-            "tail": "(that: Iterator[B]): Iterator[(Lexeme[T], B)]",
-            "member": "scala.collection.Iterator.zip",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#zip[B](that:Iterator[B]):Iterator[(A,B)]",
-            "kind": "def"
-        }, {
-            "label": "dropWhile",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.dropWhile",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#dropWhile(p:A=>Boolean):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "span",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): (Iterator[Lexeme[T]], Iterator[Lexeme[T]])",
-            "member": "scala.collection.Iterator.span",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#span(p:A=>Boolean):(Iterator[A],Iterator[A])",
-            "kind": "def"
-        }, {
-            "label": "partition",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): (Iterator[Lexeme[T]], Iterator[Lexeme[T]])",
-            "member": "scala.collection.Iterator.partition",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#partition(p:A=>Boolean):(Iterator[A],Iterator[A])",
-            "kind": "def"
-        }, {
-            "label": "takeWhile",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.takeWhile",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#takeWhile(p:A=>Boolean):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "scanRight",
-            "tail": "(z: B)(op: (Lexeme[T], B) ⇒ B): Iterator[B]",
-            "member": "scala.collection.Iterator.scanRight",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#scanRight[B](z:B)(op:(A,B)=>B):Iterator[B]",
-            "kind": "def"
-        }, {
-            "label": "scanLeft",
-            "tail": "(z: B)(op: (B, Lexeme[T]) ⇒ B): Iterator[B]",
-            "member": "scala.collection.Iterator.scanLeft",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#scanLeft[B](z:B)(op:(B,A)=>B):Iterator[B]",
-            "kind": "def"
-        }, {
-            "label": "collect",
-            "tail": "(pf: PartialFunction[Lexeme[T], B]): Iterator[B]",
-            "member": "scala.collection.Iterator.collect",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#collect[B](pf:PartialFunction[A,B]):Iterator[B]",
-            "kind": "def"
-        }, {
-            "label": "filterNot",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.filterNot",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#filterNot(p:A=>Boolean):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "withFilter",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.withFilter",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#withFilter(p:A=>Boolean):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "corresponds",
-            "tail": "(that: GenTraversableOnce[B])(p: (Lexeme[T], B) ⇒ Boolean): Boolean",
-            "member": "scala.collection.Iterator.corresponds",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#corresponds[B](that:scala.collection.GenTraversableOnce[B])(p:(A,B)=>Boolean):Boolean",
-            "kind": "def"
-        }, {
-            "label": "filter",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.filter",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#filter(p:A=>Boolean):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "flatMap",
-            "tail": "(f: (Lexeme[T]) ⇒ GenTraversableOnce[B]): Iterator[B]",
-            "member": "scala.collection.Iterator.flatMap",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#flatMap[B](f:A=>scala.collection.GenTraversableOnce[B]):Iterator[B]",
-            "kind": "def"
-        }, {
-            "label": "++",
-            "tail": "(that: ⇒ GenTraversableOnce[B]): Iterator[B]",
-            "member": "scala.collection.Iterator.++",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#++[B>:A](that:=>scala.collection.GenTraversableOnce[B]):Iterator[B]",
-            "kind": "def"
-        }, {
-            "label": "map",
-            "tail": "(f: (Lexeme[T]) ⇒ B): Iterator[B]",
-            "member": "scala.collection.Iterator.map",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#map[B](f:A=>B):Iterator[B]",
-            "kind": "def"
-        }, {
-            "label": "sliceIterator",
-            "tail": "(from: Int, until: Int): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.sliceIterator",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#sliceIterator(from:Int,until:Int):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "slice",
-            "tail": "(from: Int, until: Int): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.slice",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#slice(from:Int,until:Int):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "drop",
-            "tail": "(n: Int): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.drop",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#drop(n:Int):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "take",
-            "tail": "(n: Int): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.take",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#take(n:Int):Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "hasDefiniteSize",
-            "tail": "(): Boolean",
-            "member": "scala.collection.Iterator.hasDefiniteSize",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#hasDefiniteSize:Boolean",
-            "kind": "def"
-        }, {
-            "label": "isTraversableAgain",
-            "tail": "(): Boolean",
-            "member": "scala.collection.Iterator.isTraversableAgain",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#isTraversableAgain:Boolean",
-            "kind": "def"
-        }, {
-            "label": "isEmpty",
-            "tail": "(): Boolean",
-            "member": "scala.collection.Iterator.isEmpty",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#isEmpty:Boolean",
-            "kind": "def"
-        }, {
-            "label": "seq",
-            "tail": "(): Iterator[Lexeme[T]]",
-            "member": "scala.collection.Iterator.seq",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#seq:Iterator[A]",
-            "kind": "def"
-        }, {
-            "label": "addString",
-            "tail": "(b: StringBuilder): StringBuilder",
-            "member": "scala.collection.TraversableOnce.addString",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#addString(b:StringBuilder):StringBuilder",
-            "kind": "def"
-        }, {
-            "label": "addString",
-            "tail": "(b: StringBuilder, sep: String): StringBuilder",
-            "member": "scala.collection.TraversableOnce.addString",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#addString(b:StringBuilder,sep:String):StringBuilder",
-            "kind": "def"
-        }, {
-            "label": "addString",
-            "tail": "(b: StringBuilder, start: String, sep: String, end: String): StringBuilder",
-            "member": "scala.collection.TraversableOnce.addString",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#addString(b:StringBuilder,start:String,sep:String,end:String):StringBuilder",
-            "kind": "def"
-        }, {
-            "label": "mkString",
-            "tail": "(): String",
-            "member": "scala.collection.TraversableOnce.mkString",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#mkString:String",
-            "kind": "def"
-        }, {
-            "label": "mkString",
-            "tail": "(sep: String): String",
-            "member": "scala.collection.TraversableOnce.mkString",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#mkString(sep:String):String",
-            "kind": "def"
-        }, {
-            "label": "mkString",
-            "tail": "(start: String, sep: String, end: String): String",
-            "member": "scala.collection.TraversableOnce.mkString",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#mkString(start:String,sep:String,end:String):String",
-            "kind": "def"
-        }, {
-            "label": "toMap",
-            "tail": "(ev: <:<[Lexeme[T], (T, U)]): Map[T, U]",
-            "member": "scala.collection.TraversableOnce.toMap",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toMap[T,U](implicitev:A<:<(T,U)):scala.collection.immutable.Map[T,U]",
-            "kind": "def"
-        }, {
-            "label": "to",
-            "tail": "(cbf: CanBuildFrom[Nothing, Lexeme[T], Col[Lexeme[T]]]): Col[Lexeme[T]]",
-            "member": "scala.collection.TraversableOnce.to",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#to[Col[_]](implicitcbf:scala.collection.generic.CanBuildFrom[Nothing,A,Col[A@scala.annotation.unchecked.uncheckedVariance]]):Col[A@scala.annotation.unchecked.uncheckedVariance]",
-            "kind": "def"
-        }, {
-            "label": "toVector",
-            "tail": "(): Vector[Lexeme[T]]",
-            "member": "scala.collection.TraversableOnce.toVector",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toVector:Vector[A]",
-            "kind": "def"
-        }, {
-            "label": "toSet",
-            "tail": "(): Set[B]",
-            "member": "scala.collection.TraversableOnce.toSet",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toSet[B>:A]:scala.collection.immutable.Set[B]",
-            "kind": "def"
-        }, {
-            "label": "toBuffer",
-            "tail": "(): Buffer[B]",
-            "member": "scala.collection.TraversableOnce.toBuffer",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toBuffer[B>:A]:scala.collection.mutable.Buffer[B]",
-            "kind": "def"
-        }, {
-            "label": "toIndexedSeq",
-            "tail": "(): IndexedSeq[Lexeme[T]]",
-            "member": "scala.collection.TraversableOnce.toIndexedSeq",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toIndexedSeq:scala.collection.immutable.IndexedSeq[A]",
-            "kind": "def"
-        }, {
-            "label": "toSeq",
-            "tail": "(): Seq[Lexeme[T]]",
-            "member": "scala.collection.TraversableOnce.toSeq",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toSeq:Seq[A]",
-            "kind": "def"
-        }, {
-            "label": "toIterable",
-            "tail": "(): Iterable[Lexeme[T]]",
-            "member": "scala.collection.TraversableOnce.toIterable",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toIterable:Iterable[A]",
-            "kind": "def"
-        }, {
-            "label": "toList",
-            "tail": "(): List[Lexeme[T]]",
-            "member": "scala.collection.TraversableOnce.toList",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toList:List[A]",
-            "kind": "def"
-        }, {
-            "label": "toArray",
-            "tail": "(arg0: ClassTag[B]): Array[B]",
-            "member": "scala.collection.TraversableOnce.toArray",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toArray[B>:A](implicitevidence$1:scala.reflect.ClassTag[B]):Array[B]",
-            "kind": "def"
-        }, {
-            "label": "copyToArray",
-            "tail": "(xs: Array[B]): Unit",
-            "member": "scala.collection.TraversableOnce.copyToArray",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#copyToArray[B>:A](xs:Array[B]):Unit",
-            "kind": "def"
-        }, {
-            "label": "copyToArray",
-            "tail": "(xs: Array[B], start: Int): Unit",
-            "member": "scala.collection.TraversableOnce.copyToArray",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#copyToArray[B>:A](xs:Array[B],start:Int):Unit",
-            "kind": "def"
-        }, {
-            "label": "copyToBuffer",
-            "tail": "(dest: Buffer[B]): Unit",
-            "member": "scala.collection.TraversableOnce.copyToBuffer",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#copyToBuffer[B>:A](dest:scala.collection.mutable.Buffer[B]):Unit",
-            "kind": "def"
-        }, {
-            "label": "minBy",
-            "tail": "(f: (Lexeme[T]) ⇒ B)(cmp: Ordering[B]): Lexeme[T]",
-            "member": "scala.collection.TraversableOnce.minBy",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#minBy[B](f:A=>B)(implicitcmp:Ordering[B]):A",
-            "kind": "def"
-        }, {
-            "label": "maxBy",
-            "tail": "(f: (Lexeme[T]) ⇒ B)(cmp: Ordering[B]): Lexeme[T]",
-            "member": "scala.collection.TraversableOnce.maxBy",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#maxBy[B](f:A=>B)(implicitcmp:Ordering[B]):A",
-            "kind": "def"
-        }, {
-            "label": "max",
-            "tail": "(cmp: Ordering[B]): Lexeme[T]",
-            "member": "scala.collection.TraversableOnce.max",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#max[B>:A](implicitcmp:Ordering[B]):A",
-            "kind": "def"
-        }, {
-            "label": "min",
-            "tail": "(cmp: Ordering[B]): Lexeme[T]",
-            "member": "scala.collection.TraversableOnce.min",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#min[B>:A](implicitcmp:Ordering[B]):A",
-            "kind": "def"
-        }, {
-            "label": "product",
-            "tail": "(num: Numeric[B]): B",
-            "member": "scala.collection.TraversableOnce.product",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#product[B>:A](implicitnum:Numeric[B]):B",
-            "kind": "def"
-        }, {
-            "label": "sum",
-            "tail": "(num: Numeric[B]): B",
-            "member": "scala.collection.TraversableOnce.sum",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#sum[B>:A](implicitnum:Numeric[B]):B",
-            "kind": "def"
-        }, {
-            "label": "aggregate",
-            "tail": "(z: ⇒ B)(seqop: (B, Lexeme[T]) ⇒ B, combop: (B, B) ⇒ B): B",
-            "member": "scala.collection.TraversableOnce.aggregate",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#aggregate[B](z:=>B)(seqop:(B,A)=>B,combop:(B,B)=>B):B",
-            "kind": "def"
-        }, {
-            "label": "fold",
-            "tail": "(z: A1)(op: (A1, A1) ⇒ A1): A1",
-            "member": "scala.collection.TraversableOnce.fold",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#fold[A1>:A](z:A1)(op:(A1,A1)=>A1):A1",
-            "kind": "def"
-        }, {
-            "label": "reduceOption",
-            "tail": "(op: (A1, A1) ⇒ A1): Option[A1]",
-            "member": "scala.collection.TraversableOnce.reduceOption",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#reduceOption[A1>:A](op:(A1,A1)=>A1):Option[A1]",
-            "kind": "def"
-        }, {
-            "label": "reduce",
-            "tail": "(op: (A1, A1) ⇒ A1): A1",
-            "member": "scala.collection.TraversableOnce.reduce",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#reduce[A1>:A](op:(A1,A1)=>A1):A1",
-            "kind": "def"
-        }, {
-            "label": "reduceRightOption",
-            "tail": "(op: (Lexeme[T], B) ⇒ B): Option[B]",
-            "member": "scala.collection.TraversableOnce.reduceRightOption",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#reduceRightOption[B>:A](op:(A,B)=>B):Option[B]",
-            "kind": "def"
-        }, {
-            "label": "reduceLeftOption",
-            "tail": "(op: (B, Lexeme[T]) ⇒ B): Option[B]",
-            "member": "scala.collection.TraversableOnce.reduceLeftOption",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#reduceLeftOption[B>:A](op:(B,A)=>B):Option[B]",
-            "kind": "def"
-        }, {
-            "label": "reduceRight",
-            "tail": "(op: (Lexeme[T], B) ⇒ B): B",
-            "member": "scala.collection.TraversableOnce.reduceRight",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#reduceRight[B>:A](op:(A,B)=>B):B",
-            "kind": "def"
-        }, {
-            "label": "reduceLeft",
-            "tail": "(op: (B, Lexeme[T]) ⇒ B): B",
-            "member": "scala.collection.TraversableOnce.reduceLeft",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#reduceLeft[B>:A](op:(B,A)=>B):B",
-            "kind": "def"
-        }, {
-            "label": "foldRight",
-            "tail": "(z: B)(op: (Lexeme[T], B) ⇒ B): B",
-            "member": "scala.collection.TraversableOnce.foldRight",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#foldRight[B](z:B)(op:(A,B)=>B):B",
-            "kind": "def"
-        }, {
-            "label": "foldLeft",
-            "tail": "(z: B)(op: (B, Lexeme[T]) ⇒ B): B",
-            "member": "scala.collection.TraversableOnce.foldLeft",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#foldLeft[B](z:B)(op:(B,A)=>B):B",
-            "kind": "def"
-        }, {
-            "label": ":\\",
-            "tail": "(z: B)(op: (Lexeme[T], B) ⇒ B): B",
-            "member": "scala.collection.TraversableOnce.:\\",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#:\\[B](z:B)(op:(A,B)=>B):B",
-            "kind": "def"
-        }, {
-            "label": "\/:",
-            "tail": "(z: B)(op: (B, Lexeme[T]) ⇒ B): B",
-            "member": "scala.collection.TraversableOnce.\/:",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#\/:[B](z:B)(op:(B,A)=>B):B",
-            "kind": "def"
-        }, {
-            "label": "collectFirst",
-            "tail": "(pf: PartialFunction[Lexeme[T], B]): Option[B]",
-            "member": "scala.collection.TraversableOnce.collectFirst",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#collectFirst[B](pf:PartialFunction[A,B]):Option[B]",
-            "kind": "def"
-        }, {
-            "label": "count",
-            "tail": "(p: (Lexeme[T]) ⇒ Boolean): Int",
-            "member": "scala.collection.TraversableOnce.count",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#count(p:A=>Boolean):Int",
-            "kind": "def"
-        }, {
-            "label": "nonEmpty",
-            "tail": "(): Boolean",
-            "member": "scala.collection.TraversableOnce.nonEmpty",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#nonEmpty:Boolean",
-            "kind": "def"
-        }, {
-            "label": "size",
-            "tail": "(): Int",
-            "member": "scala.collection.TraversableOnce.size",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#size:Int",
-            "kind": "def"
-        }, {
-            "label": "reversed",
-            "tail": "(): List[Lexeme[T]]",
-            "member": "scala.collection.TraversableOnce.reversed",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#reversed:List[A]",
-            "kind": "def"
-        }, {
-            "label": "sizeHintIfCheap",
-            "tail": "(): Int",
-            "member": "scala.collection.GenTraversableOnce.sizeHintIfCheap",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#sizeHintIfCheap:Int",
-            "kind": "def"
-        }, {
             "label": "synchronized",
             "tail": "(arg0: ⇒ T0): T0",
             "member": "scala.AnyRef.synchronized",
@@ -1736,6 +1196,12 @@ Index.PACKAGES = {
             "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#notify():Unit",
             "kind": "final def"
         }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#toString():String",
+            "kind": "def"
+        }, {
             "label": "clone",
             "tail": "(): AnyRef",
             "member": "scala.AnyRef.clone",
@@ -1772,16 +1238,10 @@ Index.PACKAGES = {
             "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#isInstanceOf[T0]:Boolean",
             "kind": "final def"
         }, {
-            "label": "next",
-            "tail": "(): Lexeme[T]",
-            "member": "scala.collection.Iterator.next",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#next():A",
-            "kind": "abstract def"
-        }, {
-            "label": "hasNext",
-            "tail": "(): Boolean",
-            "member": "scala.collection.Iterator.hasNext",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#hasNext:Boolean",
+            "label": "lexemesStream",
+            "tail": "(tokens: Stream[Token[T]]): Stream[Lexeme[T]]",
+            "member": "ua.kyiv.tinedel.csvparser.lexer.Lexer.lexemesStream",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/Lexer.html#lexemesStream(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):Stream[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]",
             "kind": "abstract def"
         }],
         "shortDescription": "Any iterator providing lexemes are lexer",
@@ -2069,6 +1529,12 @@ Index.PACKAGES = {
             "tail": "(): Token[ByteSeq]",
             "member": "ua.kyiv.tinedel.csvparser.lexer.MinimalMemoryLexer.nextToken",
             "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/MinimalMemoryLexer.html#nextToken:ua.kyiv.tinedel.csvparser.tokenizer.Token[ua.kyiv.tinedel.csvparser.ByteSeq]",
+            "kind": "def"
+        }, {
+            "label": "lexemesStream",
+            "tail": "(tokens: Stream[Token[ByteSeq]]): Stream[Lexeme[ByteSeq]]",
+            "member": "ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.lexemesStream",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/MinimalMemoryLexer.html#lexemesStream(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):Stream[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]",
             "kind": "def"
         }, {
             "label": "next",
@@ -3062,6 +2528,12 @@ Index.PACKAGES = {
             "member": "scala.collection.Iterator.GroupedIterator",
             "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/SimpleLexer.html#GroupedIterator[B>:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]",
             "kind": "class"
+        }, {
+            "label": "lexemesStream",
+            "tail": "(tokens: Stream[Token[String]]): Stream[Lexeme[String]]",
+            "member": "ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.lexemesStream",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/lexer\/SimpleLexer.html#lexemesStream(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):Stream[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]",
+            "kind": "def"
         }, {
             "label": "next",
             "tail": "(): Lexeme[String]",
@@ -8477,7 +7949,7 @@ Index.PACKAGES = {
             "label": "GroupedIterator",
             "tail": "",
             "member": "scala.collection.Iterator.GroupedIterator",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/MinimalMemoryCSVParser.html#GroupedIterator[B>:A]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/MinimalMemoryCSVParser.html#GroupedIterator[B<:<?>]extendsAbstractIterator[Seq[B]]withIterator[Seq[B]]",
             "kind": "class"
         }, {
             "label": "next",
@@ -8508,9 +7980,9 @@ Index.PACKAGES = {
             "kind": "val"
         }, {
             "label": "lexer",
-            "tail": ": Lexer[ByteSeq]",
+            "tail": ": Lexer[ByteSeq] with Iterator[Lexeme[ByteSeq]]",
             "member": "ua.kyiv.tinedel.csvparser.MinimalMemoryCSVParser.lexer",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/MinimalMemoryCSVParser.html#lexer:ua.kyiv.tinedel.csvparser.lexer.Lexer[ua.kyiv.tinedel.csvparser.ByteSeq]",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/MinimalMemoryCSVParser.html#lexer:ua.kyiv.tinedel.csvparser.lexer.Lexer[ua.kyiv.tinedel.csvparser.ByteSeq]withIterator[ua.kyiv.tinedel.csvparser.lexer.Lexeme[ua.kyiv.tinedel.csvparser.ByteSeq]]",
             "kind": "val"
         }, {
             "label": "toString",
@@ -9335,9 +8807,9 @@ Index.PACKAGES = {
             "kind": "val"
         }, {
             "label": "lexer",
-            "tail": ": Lexer[String]",
+            "tail": ": Iterator[Lexeme[String]]",
             "member": "ua.kyiv.tinedel.csvparser.RelaxedCSVParser.lexer",
-            "link": "ua\/kyiv\/tinedel\/csvparser\/RelaxedCSVParser.html#lexer:ua.kyiv.tinedel.csvparser.lexer.Lexer[String]",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/RelaxedCSVParser.html#lexer:Iterator[ua.kyiv.tinedel.csvparser.lexer.Lexeme[String]]",
             "kind": "val"
         }, {
             "label": "toString",
@@ -10122,6 +9594,1152 @@ Index.PACKAGES = {
             "kind": "final def"
         }],
         "class": "ua\/kyiv\/tinedel\/csvparser\/RelaxedCSVParser.html",
+        "kind": "class"
+    }, {
+        "name": "ua.kyiv.tinedel.csvparser.TestApp",
+        "shortDescription": "",
+        "object": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html",
+        "members_object": [{
+            "label": "main",
+            "tail": "(args: Array[String]): Unit",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.main",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#main(args:Array[String]):Unit",
+            "kind": "def"
+        }, {
+            "label": "infiniteStream",
+            "tail": "(): Iterator[List[Long]]",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.infiniteStream",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#infiniteStream():Iterator[List[Long]]",
+            "kind": "final def"
+        }, {
+            "label": "formatSize",
+            "tail": "(size: Long): String",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.formatSize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#formatSize(size:Long):String",
+            "kind": "def"
+        }, {
+            "label": "process",
+            "tail": "(recordsStream: Iterator[Iterable[_]]): Unit",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.process",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#process(recordsStream:Iterator[Iterable[_]]):Unit",
+            "kind": "final def"
+        }, {
+            "label": "parseRelaxed",
+            "tail": "(fis: FileInputStream): Iterator[Map[Int, String]]",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.parseRelaxed",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#parseRelaxed(fis:java.io.FileInputStream):Iterator[Map[Int,String]]",
+            "kind": "final def"
+        }, {
+            "label": "parseImmutably",
+            "tail": "(fis: FileInputStream): Stream[Map[Int, String]]",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.parseImmutably",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#parseImmutably(fis:java.io.FileInputStream):Stream[Map[Int,String]]",
+            "kind": "final def"
+        }, {
+            "label": "codec",
+            "tail": ": Codec",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.codec",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#codec:scala.io.Codec",
+            "kind": "implicit val"
+        }, {
+            "label": "parseArgs",
+            "tail": "(args: Array[String]): (File, String)",
+            "member": "ua.kyiv.tinedel.csvparser.TestApp.parseArgs",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#parseArgs(args:Array[String]):(java.io.File,String)",
+            "kind": "def"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/TestApp$.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "kind": "object"
+    }], "ua.kyiv.tinedel.csvparser.immutable": [{
+        "name": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer",
+        "shortDescription": "Immutable lexer.",
+        "object": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html",
+        "members_class": [{
+            "label": "FinalState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.FinalState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#FinalStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "QuotedState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.QuotedState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#QuotedStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "MaybeBlockState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.MaybeBlockState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#MaybeBlockStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "StillNotSureIfQuotedState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.StillNotSureIfQuotedState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#StillNotSureIfQuotedStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "MaybeQuotedState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.MaybeQuotedState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#MaybeQuotedStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "QuotedEscapeState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.QuotedEscapeState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#QuotedEscapeStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "EscapeState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.EscapeState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#EscapeStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "InitialState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.InitialState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#InitialStateextendsImmutableLexer.this.LexerStatewithProductwithSerializable",
+            "kind": "case class"
+        }, {
+            "label": "LexerState",
+            "tail": "",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#LexerStateextendsAnyRef",
+            "kind": "sealed trait"
+        }, {
+            "label": "lexemesStream",
+            "tail": "(tokens: Stream[Token[T]]): Stream[Lexeme[T]]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.lexemesStream",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#lexemesStream(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):Stream[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]",
+            "kind": "final def"
+        }, {
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer#<init>",
+            "error": "unsupported entity"
+        }, {
+            "label": "concat",
+            "tail": ": (T, T) ⇒ T",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.concat",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#concat:(T,T)=>T",
+            "kind": "val"
+        }, {
+            "label": "z",
+            "tail": ": T",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.z",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#z:T",
+            "kind": "val"
+        }, {
+            "label": "tokenMap",
+            "tail": ": Map[Token[_], T]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.tokenMap",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#tokenMap:Map[ua.kyiv.tinedel.csvparser.tokenizer.Token[_],T]",
+            "kind": "val"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "members_object": [{
+            "label": "apply",
+            "tail": "(quotingString: String, recordSeparator: String, fieldSeparator: String, escapeString: Option[String]): ImmutableLexer[String]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.apply",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#apply(quotingString:String,recordSeparator:String,fieldSeparator:String,escapeString:Option[String]):ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer[String]",
+            "kind": "def"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer$.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "class": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableLexer.html",
+        "kind": "class"
+    }, {
+        "name": "ua.kyiv.tinedel.csvparser.immutable.ImmutableParser",
+        "shortDescription": "Provides parsing capability in the immutable fashion convering the input stream of lexemes to the stream of recordsrepresented as Map of field numbers to field contents.",
+        "object": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html",
+        "members_class": [{
+            "label": "withHeader",
+            "tail": "(stream: Stream[Lexeme[T]]): (Option[Map[Int, T]], Stream[Map[Int, T]])",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableParser.withHeader",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#withHeader(stream:Stream[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]):(Option[Map[Int,T]],Stream[Map[Int,T]])",
+            "kind": "final def"
+        }, {
+            "label": "records",
+            "tail": "(stream: Stream[Lexeme[T]]): Stream[Map[Int, T]]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableParser.records",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#records(stream:Stream[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]):Stream[Map[Int,T]]",
+            "kind": "final def"
+        }, {
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableParser#<init>",
+            "error": "unsupported entity"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "members_object": [{
+            "label": "csvWithHeader",
+            "tail": "(is: InputStream, quotingString: String, recordSeparator: String, fieldSeparator: String, escapeString: Option[String])(codec: Codec): (Option[Map[Int, String]], Stream[Map[Int, String]])",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableParser.csvWithHeader",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#csvWithHeader(is:java.io.InputStream,quotingString:String,recordSeparator:String,fieldSeparator:String,escapeString:Option[String])(implicitcodec:scala.io.Codec):(Option[Map[Int,String]],Stream[Map[Int,String]])",
+            "kind": "def"
+        }, {
+            "label": "csv",
+            "tail": "(is: InputStream, quotingString: String, recordSeparator: String, fieldSeparator: String, escapeString: Option[String])(codec: Codec): Stream[Map[Int, String]]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableParser.csv",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#csv(is:java.io.InputStream,quotingString:String,recordSeparator:String,fieldSeparator:String,escapeString:Option[String])(implicitcodec:scala.io.Codec):Stream[Map[Int,String]]",
+            "kind": "def"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser$.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "class": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableParser.html",
+        "kind": "class"
+    }, {
+        "name": "ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer",
+        "shortDescription": "Consumes data from character stream and composes it into tokens suitable for lexing CSV",
+        "object": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html",
+        "members_class": [{
+            "label": "tokenize",
+            "tail": "(stream: Stream[Char]): Stream[Token[String]]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer.tokenize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#tokenize(stream:Stream[Char]):Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[String]]",
+            "kind": "final def"
+        }, {
+            "label": "tokenize",
+            "tail": "(source: Source): Stream[Token[String]]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer.tokenize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#tokenize(source:scala.io.Source):Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[String]]",
+            "kind": "final def"
+        }, {
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer#<init>",
+            "error": "unsupported entity"
+        }, {
+            "label": "rootTrie",
+            "tail": ": Trie[Token[Nothing]]",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer.rootTrie",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#rootTrie:ua.kyiv.tinedel.csvparser.tokenizer.Trie[ua.kyiv.tinedel.csvparser.tokenizer.Token[Nothing]]",
+            "kind": "val"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "members_object": [{
+            "label": "apply",
+            "tail": "(quotingString: String, recordSeparator: String, fieldSeparator: String, escapeString: Option[String])(codec: Codec): ImmutableTokenizer",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer.apply",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#apply(quotingString:String,recordSeparator:String,fieldSeparator:String,escapeString:Option[String])(implicitcodec:scala.io.Codec):ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer",
+            "kind": "def"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer$.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "class": "ua\/kyiv\/tinedel\/csvparser\/immutable\/ImmutableTokenizer.html",
+        "kind": "class"
+    }, {
+        "name": "ua.kyiv.tinedel.csvparser.immutable.PostfixMatcher",
+        "shortDescription": "Provides operation matchComposite to allow composing several shareable partial functions and traditionalmatch case syntax",
+        "members_class": [{
+            "label": "matchComposite",
+            "tail": "(f: (K) ⇒ T): T",
+            "member": "ua.kyiv.tinedel.csvparser.immutable.PostfixMatcher.matchComposite",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#matchComposite[T](f:K=>T):T",
+            "kind": "def"
+        }, {
+            "member": "ua.kyiv.tinedel.csvparser.immutable.PostfixMatcher#<init>",
+            "error": "unsupported entity"
+        }, {
+            "label": "synchronized",
+            "tail": "(arg0: ⇒ T0): T0",
+            "member": "scala.AnyRef.synchronized",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#synchronized[T0](x$1:=>T0):T0",
+            "kind": "final def"
+        }, {
+            "label": "##",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.##",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html###():Int",
+            "kind": "final def"
+        }, {
+            "label": "!=",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.!=",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#!=(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "==",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.==",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#==(x$1:Any):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "ne",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.ne",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#ne(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "eq",
+            "tail": "(arg0: AnyRef): Boolean",
+            "member": "scala.AnyRef.eq",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#eq(x$1:AnyRef):Boolean",
+            "kind": "final def"
+        }, {
+            "label": "finalize",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.finalize",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#finalize():Unit",
+            "kind": "def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long, arg1: Int): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#wait(x$1:Long,x$2:Int):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(arg0: Long): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#wait(x$1:Long):Unit",
+            "kind": "final def"
+        }, {
+            "label": "wait",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.wait",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#wait():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notifyAll",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notifyAll",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#notifyAll():Unit",
+            "kind": "final def"
+        }, {
+            "label": "notify",
+            "tail": "(): Unit",
+            "member": "scala.AnyRef.notify",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#notify():Unit",
+            "kind": "final def"
+        }, {
+            "label": "toString",
+            "tail": "(): String",
+            "member": "scala.AnyRef.toString",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#toString():String",
+            "kind": "def"
+        }, {
+            "label": "clone",
+            "tail": "(): AnyRef",
+            "member": "scala.AnyRef.clone",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#clone():Object",
+            "kind": "def"
+        }, {
+            "label": "equals",
+            "tail": "(arg0: Any): Boolean",
+            "member": "scala.AnyRef.equals",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#equals(x$1:Any):Boolean",
+            "kind": "def"
+        }, {
+            "label": "hashCode",
+            "tail": "(): Int",
+            "member": "scala.AnyRef.hashCode",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#hashCode():Int",
+            "kind": "def"
+        }, {
+            "label": "getClass",
+            "tail": "(): Class[_]",
+            "member": "scala.AnyRef.getClass",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#getClass():Class[_]",
+            "kind": "final def"
+        }, {
+            "label": "asInstanceOf",
+            "tail": "(): T0",
+            "member": "scala.Any.asInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#asInstanceOf[T0]:T0",
+            "kind": "final def"
+        }, {
+            "label": "isInstanceOf",
+            "tail": "(): Boolean",
+            "member": "scala.Any.isInstanceOf",
+            "link": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html#isInstanceOf[T0]:Boolean",
+            "kind": "final def"
+        }],
+        "class": "ua\/kyiv\/tinedel\/csvparser\/immutable\/package$$PostfixMatcher.html",
         "kind": "class"
     }], "ua.kyiv.tinedel": []
 };

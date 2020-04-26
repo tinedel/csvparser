@@ -165,11 +165,11 @@
               </dl>
             </div>
           </li>
-          <li name="ua.kyiv.tinedel.csvparser.lexer" visbl="pub" class="indented5 " data-isabs="false" fullComment="yes"
-              group="Ungrouped">
-            <a id="lexer"></a><a id="lexer:lexer"></a>
+          <li name="ua.kyiv.tinedel.csvparser.immutable" visbl="pub" class="indented5 " data-isabs="false"
+              fullComment="yes" group="Ungrouped">
+            <a id="immutable"></a><a id="immutable:immutable"></a>
             <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/index.html" title="Permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/index.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -178,22 +178,45 @@
         <span class="kind">package</span>
       </span>
             <span class="symbol">
-        <a title="" href="index.html"><span class="name">lexer</span></a>
+        <a title="Immutable CSV parser and which relies on immutable tokenizer and lexer to perform the job"
+           href="index.html"><span class="name">immutable</span></a>
       </span>
 
+            <p class="shortcomment cmt">Immutable CSV parser and which relies on immutable tokenizer and lexer to
+              perform the job</p>
             <div class="fullcomment">
+              <div class="comment cmt"><p>Immutable CSV parser and which relies on immutable tokenizer and lexer to
+                perform the job</p>
+                <p><a href="ImmutableTokenizer.html" class="extype"
+                      name="ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer">ImmutableTokenizer</a> - Takes input
+                  <span class="extype" name="scala.io.Source">scala.io.Source</span> and splits it into tokens
+                  <a href="ImmutableLexer.html" class="extype"
+                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer">ImmutableLexer</a> - Processes CSV
+                  grammar to get stream of lexems according to csv standard
+                  <a href="ImmutableParser.html" class="extype"
+                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableParser">ImmutableParser</a> - Finalizes the
+                  processing producing <span class="extype" name="Map">Map</span> of field number (1-based) to field
+                  content</p>
+                <p>Instances of Lexer and Parser are capable of taking non-string Streams to implement parsers with
+                  smaller memory
+                  consumption for the case of huge values in the cells.
+                </p></div>
               <dl class="attributes block">
                 <dt>Definition Classes</dt>
                 <dd><a href="../index.html" class="extype" name="ua.kyiv.tinedel.csvparser">csvparser</a></dd>
+                <dt>See also</dt>
+                <dd><span class="cmt"><p><a href="../lexer/GenericCSVLexer.html" class="extype"
+                                            name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer">ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer</a>, <a
+                    href="../MinimalMemoryCSVParser.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.MinimalMemoryCSVParser">MinimalMemoryCSVParser</a></p></span></dd>
               </dl>
             </div>
           </li>
-          <li name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer" visbl="pub" class="indented6 " data-isabs="false"
-              fullComment="yes" group="Ungrouped">
-            <a id="GenericCSVLexer[T]extendsLexer[T]withIterator[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]"></a><a
-              id="GenericCSVLexer[T]:GenericCSVLexer[T]"></a>
+          <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer" visbl="pub" class="indented6 "
+              data-isabs="false" fullComment="yes" group="Ungrouped">
+            <a id="ImmutableLexer[T]extendsLexer[T]"></a><a id="ImmutableLexer[T]:ImmutableLexer[T]"></a>
             <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer.html" title="Permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer.html" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -202,126 +225,97 @@
         <span class="kind">class</span>
       </span>
             <span class="symbol">
-        <a title="Generic lexer consuming tokens from tokenizer and build lexemes." href="GenericCSVLexer.html"><span
-            class="name">GenericCSVLexer</span></a><span class="tparams">[<span name="T">T</span>]</span><span
-                class="result"> extends <a href="Lexer.html" class="extype"
-                                           name="ua.kyiv.tinedel.csvparser.lexer.Lexer">Lexer</a>[<span class="extype"
-                                                                                                        name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.T">T</span>] with <span
-                class="extype" name="scala.Iterator">Iterator</span>[<a href="Lexeme.html" class="extype"
-                                                                        name="ua.kyiv.tinedel.csvparser.lexer.Lexeme">Lexeme</a>[<span
-                class="extype" name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.T">T</span>]]</span>
+        <a title="Immutable lexer." href="ImmutableLexer.html"><span class="name">ImmutableLexer</span></a><span
+                class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a
+                href="../lexer/Lexer.html" class="extype" name="ua.kyiv.tinedel.csvparser.lexer.Lexer">Lexer</a>[<span
+                class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]</span>
       </span>
 
-            <p class="shortcomment cmt">Generic lexer consuming tokens from tokenizer and build lexemes.</p>
+            <p class="shortcomment cmt">Immutable lexer.</p>
             <div class="fullcomment">
-              <div class="comment cmt"><p>Generic lexer consuming tokens from tokenizer and build lexemes.</p>
-                <p>Lexer using final state automate when considering what lexeme it should build from token's stream</p>
-                <p>Slightly simplified graph of FSA used in lexer</p>
-                <p><img src="fsa.png" style="width: 100%"/></p>
-                <p>Does not include escaped block and escaped quoted block states which are essentially capture the next
-                  token and convert it into block before returning to block or quoted block states</p>
-                <p>The main method is the tryFetch which is feeding the tokens into FSA and calling itself recursively
-                  until at least one
-                  lexeme is found, or end of file or FinalState is reached.</p>
-                <p>Some threadsafety and synchronization is attempted but not guaranteed
-                </p></div>
+              <div class="comment cmt"><p>Immutable lexer. Takes Stream of tokens and produces stream of lexemes</p>
+              </div>
               <dl class="paramcmts block">
                 <dt class="tparam">T</dt>
-                <dd class="cmt"><p>type contained in tokens and to be produced in fields</p></dd>
+                <dd class="cmt"><p>represent the type of value. Most useful is string but allows to build minimal memory
+                  version which would
+                  support cells of any size.</p></dd>
               </dl>
               <dl class="attributes block">
                 <dt>Definition Classes</dt>
-                <dd><a href="index.html" class="extype" name="ua.kyiv.tinedel.csvparser.lexer">lexer</a></dd>
+                <dd><a href="index.html" class="extype" name="ua.kyiv.tinedel.csvparser.immutable">immutable</a></dd>
               </dl>
             </div>
           </li>
           <li class="current-entities indented6">
             <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$BlockState$.html" title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$BlockState$.html" title="&lt;invalid inheritdoc annotation&gt;">BlockState</a>
+            <a class="class" href="ImmutableLexer$EscapeState.html" title="&lt;invalid inheritdoc annotation&gt;"></a>
+            <a href="ImmutableLexer$EscapeState.html" title="&lt;invalid inheritdoc annotation&gt;">EscapeState</a>
           </li>
           <li class="current-entities indented6">
             <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$EscapeState$.html"
+            <a class="class" href="ImmutableLexer$FinalState.html" title="&lt;invalid inheritdoc annotation&gt;"></a>
+            <a href="ImmutableLexer$FinalState.html" title="&lt;invalid inheritdoc annotation&gt;">FinalState</a>
+          </li>
+          <li class="current-entities indented6">
+            <span class="separator"></span>
+            <a class="class" href="ImmutableLexer$InitialState.html" title="&lt;invalid inheritdoc annotation&gt;"></a>
+            <a href="ImmutableLexer$InitialState.html" title="&lt;invalid inheritdoc annotation&gt;">InitialState</a>
+          </li>
+          <li class="current-entities indented6">
+            <span class="separator"></span>
+            <a class="trait" href="ImmutableLexer$LexerState.html"
+               title="Immutable lexer state, can produce next state from given Token Implements nextStream function returning stream of states from given stream of tokens"></a>
+            <a href="ImmutableLexer$LexerState.html"
+               title="Immutable lexer state, can produce next state from given Token Implements nextStream function returning stream of states from given stream of tokens">LexerState</a>
+          </li>
+          <li class="current-entities indented6">
+            <span class="separator"></span>
+            <a class="class" href="ImmutableLexer$MaybeBlockState.html"
                title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$EscapeState$.html" title="&lt;invalid inheritdoc annotation&gt;">EscapeState</a>
+            <a href="ImmutableLexer$MaybeBlockState.html"
+               title="&lt;invalid inheritdoc annotation&gt;">MaybeBlockState</a>
           </li>
           <li class="current-entities indented6">
             <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$FinalState$.html" title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$FinalState$.html" title="&lt;invalid inheritdoc annotation&gt;">FinalState</a>
-          </li>
-          <li class="current-entities indented6">
-            <span class="separator"></span>
-            <a class="class" href="GenericCSVLexer$GroupedIterator.html" title=""></a>
-            <a href="GenericCSVLexer$GroupedIterator.html" title="">GroupedIterator</a>
-          </li>
-          <li class="current-entities indented6">
-            <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$InitialState$.html"
+            <a class="class" href="ImmutableLexer$MaybeQuotedState.html"
                title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$InitialState$.html" title="&lt;invalid inheritdoc annotation&gt;">InitialState</a>
+            <a href="ImmutableLexer$MaybeQuotedState.html" title="&lt;invalid inheritdoc annotation&gt;">MaybeQuotedState</a>
           </li>
           <li class="current-entities indented6">
             <span class="separator"></span>
-            <a class="class" href="GenericCSVLexer$LexerContext.html"
-               title="Stores current state and accumulated blocks waiting to form a field"></a>
-            <a href="GenericCSVLexer$LexerContext.html"
-               title="Stores current state and accumulated blocks waiting to form a field">LexerContext</a>
-          </li>
-          <li class="current-entities indented6">
-            <span class="separator"></span>
-            <a class="trait" href="GenericCSVLexer$LexerState.html"
-               title="Represent state of the FSA which can consume next token and return any found lexemes and the new state of the FSA All of the states are stateless and thus represented as case objects"></a>
-            <a href="GenericCSVLexer$LexerState.html"
-               title="Represent state of the FSA which can consume next token and return any found lexemes and the new state of the FSA All of the states are stateless and thus represented as case objects">LexerState</a>
-          </li>
-          <li class="current-entities indented6">
-            <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$MaybeBlockState$.html"
+            <a class="class" href="ImmutableLexer$QuotedEscapeState.html"
                title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$MaybeBlockState$.html" title="&lt;invalid inheritdoc annotation&gt;">MaybeBlockState</a>
+            <a href="ImmutableLexer$QuotedEscapeState.html" title="&lt;invalid inheritdoc annotation&gt;">QuotedEscapeState</a>
           </li>
           <li class="current-entities indented6">
             <span class="separator"></span>
-            <a class="object" href="" title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="" title="&lt;invalid inheritdoc annotation&gt;">MaybeQuotedState</a>
+            <a class="class" href="ImmutableLexer$QuotedState.html" title="&lt;invalid inheritdoc annotation&gt;"></a>
+            <a href="ImmutableLexer$QuotedState.html" title="&lt;invalid inheritdoc annotation&gt;">QuotedState</a>
           </li>
           <li class="current-entities indented6">
             <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$QuotedEscapeState$.html"
-               title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$QuotedEscapeState$.html" title="&lt;invalid inheritdoc annotation&gt;">QuotedEscapeState</a>
-          </li>
-          <li class="current-entities indented6">
-            <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$QuotedState$.html"
-               title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$QuotedState$.html" title="&lt;invalid inheritdoc annotation&gt;">QuotedState</a>
-          </li>
-          <li class="current-entities indented6">
-            <span class="separator"></span>
-            <a class="object" href="GenericCSVLexer$StillNotSureIfQuotedState$.html"
-               title="&lt;invalid inheritdoc annotation&gt;"></a>
-            <a href="GenericCSVLexer$StillNotSureIfQuotedState$.html" title="&lt;invalid inheritdoc annotation&gt;">StillNotSureIfQuotedState</a>
+            <a class="class" href="" title="&lt;invalid inheritdoc annotation&gt;"></a>
+            <a href="" title="&lt;invalid inheritdoc annotation&gt;">StillNotSureIfQuotedState</a>
           </li>
         </ul>
       </div>
     </div>
     <div id="content">
-      <body class="object value">
+      <body class="class type">
       <div id="definition">
-        <div class="big-circle object">o</div>
+        <div class="big-circle class">c</div>
         <p id="owner"><a href="../../../../index.html" class="extype" name="ua">ua</a>.<a href="../../../index.html"
                                                                                           class="extype" name="ua.kyiv">kyiv</a>.<a
             href="../../index.html" class="extype" name="ua.kyiv.tinedel">tinedel</a>.<a href="../index.html"
                                                                                          class="extype"
                                                                                          name="ua.kyiv.tinedel.csvparser">csvparser</a>.<a
-            href="index.html" class="extype" name="ua.kyiv.tinedel.csvparser.lexer">lexer</a>.<a
-            href="GenericCSVLexer.html" class="extype" name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer">GenericCSVLexer</a>
+            href="index.html" class="extype" name="ua.kyiv.tinedel.csvparser.immutable">immutable</a>.<a
+            href="ImmutableLexer.html" class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer">ImmutableLexer</a>
         </p>
-        <h1>MaybeQuotedState<span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html" title="Permalink">
+        <h1>StillNotSureIfQuotedState<span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html"
+         title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span></h1>
@@ -331,14 +325,16 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">object</span>
+        <span class="kind">case class</span>
       </span>
         <span class="symbol">
-        <span class="name">MaybeQuotedState</span><span class="result"> extends <a
-            href="GenericCSVLexer$LexerState.html" class="extype"
-            name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.LexerState">LexerState</a> with <span class="extype"
-                                                                                                        name="scala.Product">Product</span> with <span
-            class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">StillNotSureIfQuotedState</span><span class="params">(<span name="buffer">buffer: <span
+            class="extype" name="scala.List">List</span>[<a href="../tokenizer/Block.html" class="extype"
+                                                            name="ua.kyiv.tinedel.csvparser.tokenizer.Block">Block</a>[<span
+            class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>)</span><span
+            class="result"> extends <a href="ImmutableLexer$LexerState.html" class="extype"
+                                       name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a> with <span
+            class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
 
@@ -353,9 +349,9 @@
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>,
             <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype"
                                                                                         name="scala.Product">Product</span>,
-            <span class="extype" name="scala.Equals">Equals</span>, <a href="GenericCSVLexer$LexerState.html"
+            <span class="extype" name="scala.Equals">Equals</span>, <a href="ImmutableLexer$LexerState.html"
                                                                        class="extype"
-                                                                       name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.LexerState">LexerState</a>,
+                                                                       name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a>,
             <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span>
           </div>
         </div>
@@ -384,14 +380,14 @@
                   <span class="filtertype">Inherited<br/>
                   </span>
             <ol id="linearization">
-              <li class="in" name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.MaybeQuotedState"><span>MaybeQuotedState</span>
+              <li class="in" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.StillNotSureIfQuotedState"><span>StillNotSureIfQuotedState</span>
               </li>
               <li class="in" name="scala.Serializable"><span>Serializable</span></li>
               <li class="in" name="java.io.Serializable"><span>Serializable</span></li>
               <li class="in" name="scala.Product"><span>Product</span></li>
               <li class="in" name="scala.Equals"><span>Equals</span></li>
-              <li class="in" name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.LexerState"><span>LexerState</span>
-              </li>
+              <li class="in" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">
+                <span>LexerState</span></li>
               <li class="in" name="scala.AnyRef"><span>AnyRef</span></li>
               <li class="in" name="scala.Any"><span>Any</span></li>
             </ol>
@@ -415,6 +411,34 @@
 
       <div id="template">
         <div id="allMembers">
+          <div id="constructors" class="members">
+            <h3>Instance Constructors</h3>
+            <ol>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.StillNotSureIfQuotedState#&lt;init&gt;"
+                  visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+                <a id="&lt;init&gt;(buffer:List[ua.kyiv.tinedel.csvparser.tokenizer.Block[T]]):ImmutableLexer.this.StillNotSureIfQuotedState"></a><a
+                  id="&lt;init&gt;:StillNotSureIfQuotedState"></a>
+                <span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#&lt;init&gt;(buffer:List[ua.kyiv.tinedel.csvparser.tokenizer.Block[T]]):ImmutableLexer.this.StillNotSureIfQuotedState"
+         title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+                <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+                <span class="symbol">
+        <span class="name">StillNotSureIfQuotedState</span><span class="params">(<span name="buffer">buffer: <span
+                    class="extype" name="scala.List">List</span>[<a href="../tokenizer/Block.html" class="extype"
+                                                                    name="ua.kyiv.tinedel.csvparser.tokenizer.Block">Block</a>[<span
+                    class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>)</span>
+      </span>
+
+
+              </li>
+            </ol>
+          </div>
 
 
           <div class="values members">
@@ -424,7 +448,7 @@
                   group="Ungrouped">
                 <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#!=(x$1:Any):Boolean"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#!=(x$1:Any):Boolean"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -450,7 +474,7 @@
                   group="Ungrouped">
                 <a id="##():Int"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html###():Int"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html###():Int"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -475,7 +499,7 @@
                   group="Ungrouped">
                 <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#==(x$1:Any):Boolean"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#==(x$1:Any):Boolean"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -501,7 +525,7 @@
                   group="Ungrouped">
                 <a id="asInstanceOf[T0]:T0"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#asInstanceOf[T0]:T0"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#asInstanceOf[T0]:T0"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -522,11 +546,41 @@
                   </dl>
                 </div>
               </li>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.StillNotSureIfQuotedState#buffer" visbl="pub"
+                  class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+                <a id="buffer:List[ua.kyiv.tinedel.csvparser.tokenizer.Block[T]]"></a><a id="buffer:List[Block[T]]"></a>
+                <span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#buffer:List[ua.kyiv.tinedel.csvparser.tokenizer.Block[T]]"
+         title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+                <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+                <span class="symbol">
+        <span class="name">buffer</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a
+                    href="../tokenizer/Block.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.tokenizer.Block">Block</a>[<span class="extype"
+                                                                                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>
+      </span>
+
+                <div class="fullcomment">
+                  <dl class="attributes block">
+                    <dt>Definition Classes</dt>
+                    <dd><a href="" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.StillNotSureIfQuotedState">StillNotSureIfQuotedState</a>
+                      → <a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
+                  </dl>
+                </div>
+              </li>
               <li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes"
                   group="Ungrouped">
                 <a id="clone():Object"></a><a id="clone():AnyRef"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#clone():Object"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#clone():Object"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -561,12 +615,12 @@
                   </dl>
                 </div>
               </li>
-              <li name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.MaybeQuotedState#consume" visbl="pub"
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState#concatBlocks" visbl="prt"
                   class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
-                <a id="consume():(List[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]],GenericCSVLexer.this.LexerContext)"></a><a
-                  id="consume():(List[Lexeme[T]],LexerContext)"></a>
+                <a id="concatBlocks(tokens:List[ua.kyiv.tinedel.csvparser.tokenizer.Block[T]]):List[ua.kyiv.tinedel.csvparser.lexer.Field[T]]"></a><a
+                  id="concatBlocks(List[Block[T]]):List[Field[T]]"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#consume():(List[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]],GenericCSVLexer.this.LexerContext)"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#concatBlocks(tokens:List[ua.kyiv.tinedel.csvparser.tokenizer.Block[T]]):List[ua.kyiv.tinedel.csvparser.lexer.Field[T]]"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -576,31 +630,65 @@
         <span class="kind">def</span>
       </span>
                 <span class="symbol">
-        <span class="name">consume</span><span class="params">()</span><span class="result">: (<span class="extype"
-                                                                                                     name="scala.List">List</span>[<a
-                    href="Lexeme.html" class="extype" name="ua.kyiv.tinedel.csvparser.lexer.Lexeme">Lexeme</a>[<span
-                    class="extype" name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.T">T</span>]], <a
-                    href="GenericCSVLexer$LexerContext.html" class="extype"
-                    name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.LexerContext">LexerContext</a>)</span>
+        <span class="name">concatBlocks</span><span class="params">(<span name="tokens">tokens: <span class="extype"
+                                                                                                      name="scala.List">List</span>[<a
+                    href="../tokenizer/Block.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.tokenizer.Block">Block</a>[<span class="extype"
+                                                                                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>)</span><span
+                    class="result">: <span class="extype" name="scala.List">List</span>[<a href="../lexer/Field.html"
+                                                                                           class="extype"
+                                                                                           name="ua.kyiv.tinedel.csvparser.lexer.Field">Field</a>[<span
+                    class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>
       </span>
 
-                <p class="shortcomment cmt">Always reads next from tokenizer and MUST finish processing and switch to
-                  the FinalState if tokenizer is empty
-                </p>
+                <p class="shortcomment cmt">Produces field from reversed list of blocks, or empty list if no blocks were
+                  collected.</p>
                 <div class="fullcomment">
-                  <div class="comment cmt"><p>Always reads next from tokenizer and MUST finish processing and switch to
-                    the FinalState if tokenizer is empty
-                  </p></div>
+                  <div class="comment cmt"><p>Produces field from reversed list of blocks, or empty list if no blocks
+                    were collected.</p></div>
                   <dl class="paramcmts block">
+                    <dt class="param">tokens</dt>
+                    <dd class="cmt"><p>reversed list of blocks.</p></dd>
                     <dt>returns</dt>
-                    <dd class="cmt"><p>List of any found lexemes in the same order and the new State of the FSA</p></dd>
+                    <dd class="cmt"><p>List of zero or one fields built from the blocks.</p></dd>
                   </dl>
                   <dl class="attributes block">
+                    <dt>Attributes</dt>
+                    <dd>protected</dd>
                     <dt>Definition Classes</dt>
-                    <dd><a href="" class="extype"
-                           name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.MaybeQuotedState">MaybeQuotedState</a>
-                      → <a href="GenericCSVLexer$LexerState.html" class="extype"
-                           name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.LexerState">LexerState</a></dd>
+                    <dd><a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
+                  </dl>
+                </div>
+              </li>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState#emptyStream" visbl="pub"
+                  class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+                <a id="emptyStream:PartialFunction[Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]],ImmutableLexer.this.LexerState]"></a><a
+                  id="emptyStream:PartialFunction[Stream[Token[T]],LexerState]"></a>
+                <span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#emptyStream:PartialFunction[Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]],ImmutableLexer.this.LexerState]"
+         title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+                <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+                <span class="symbol">
+        <span class="name">emptyStream</span><span class="result">: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span
+                    class="extype" name="scala.Stream">Stream</span>[<a href="../tokenizer/Token.html" class="extype"
+                                                                        name="ua.kyiv.tinedel.csvparser.tokenizer.Token">Token</a>[<span
+                    class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]], <a
+                    href="ImmutableLexer$LexerState.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a>]</span>
+      </span>
+
+                <div class="fullcomment">
+                  <dl class="attributes block">
+                    <dt>Definition Classes</dt>
+                    <dd><a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
                   </dl>
                 </div>
               </li>
@@ -608,7 +696,7 @@
                   group="Ungrouped">
                 <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#eq(x$1:AnyRef):Boolean"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#eq(x$1:AnyRef):Boolean"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -630,29 +718,35 @@
                   </dl>
                 </div>
               </li>
-              <li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes"
-                  group="Ungrouped">
-                <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState#fieldSeparator" visbl="pub"
+                  class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+                <a id="fieldSeparator:PartialFunction[Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]],ImmutableLexer.this.LexerState]"></a><a
+                  id="fieldSeparator:PartialFunction[Stream[Token[T]],LexerState]"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#equals(x$1:Any):Boolean"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#fieldSeparator:PartialFunction[Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]],ImmutableLexer.this.LexerState]"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
                 <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
                 <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype"
-                                                                                            name="scala.Any">Any</span></span>)</span><span
-                    class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">fieldSeparator</span><span class="result">: <span class="extype"
+                                                                             name="scala.PartialFunction">PartialFunction</span>[<span
+                    class="extype" name="scala.Stream">Stream</span>[<a href="../tokenizer/Token.html" class="extype"
+                                                                        name="ua.kyiv.tinedel.csvparser.tokenizer.Token">Token</a>[<span
+                    class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]], <a
+                    href="ImmutableLexer$LexerState.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a>]</span>
       </span>
 
                 <div class="fullcomment">
                   <dl class="attributes block">
                     <dt>Definition Classes</dt>
-                    <dd>AnyRef → Any</dd>
+                    <dd><a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
                   </dl>
                 </div>
               </li>
@@ -660,7 +754,7 @@
                   group="Ungrouped">
                 <a id="getClass():Class[_]"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#getClass():Class[_]"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#getClass():Class[_]"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -692,7 +786,7 @@
                   group="Ungrouped">
                 <a id="isInstanceOf[T0]:Boolean"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#isInstanceOf[T0]:Boolean"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#isInstanceOf[T0]:Boolean"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -713,11 +807,38 @@
                   </dl>
                 </div>
               </li>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState#lexemes" visbl="pub"
+                  class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+                <a id="lexemes:List[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]"></a><a id="lexemes:List[Lexeme[T]]"></a>
+                <span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#lexemes:List[ua.kyiv.tinedel.csvparser.lexer.Lexeme[T]]"
+         title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+                <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+                <span class="symbol">
+        <span class="name">lexemes</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a
+                    href="../lexer/Lexeme.html" class="extype" name="ua.kyiv.tinedel.csvparser.lexer.Lexeme">Lexeme</a>[<span
+                    class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>
+      </span>
+
+                <div class="fullcomment">
+                  <dl class="attributes block">
+                    <dt>Definition Classes</dt>
+                    <dd><a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
+                  </dl>
+                </div>
+              </li>
               <li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes"
                   group="Ungrouped">
                 <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#ne(x$1:AnyRef):Boolean"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#ne(x$1:AnyRef):Boolean"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -739,11 +860,95 @@
                   </dl>
                 </div>
               </li>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.StillNotSureIfQuotedState#nextState"
+                  visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+                <a id="nextState(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):ImmutableLexer.this.LexerState"></a><a
+                  id="nextState(Stream[Token[T]]):LexerState"></a>
+                <span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#nextState(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):ImmutableLexer.this.LexerState"
+         title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+                <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+                <span class="symbol">
+        <span class="name">nextState</span><span class="params">(<span name="tokens">tokens: <span class="extype"
+                                                                                                   name="scala.Stream">Stream</span>[<a
+                    href="../tokenizer/Token.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.tokenizer.Token">Token</a>[<span class="extype"
+                                                                                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>)</span><span
+                    class="result">: <a href="ImmutableLexer$LexerState.html" class="extype"
+                                        name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></span>
+      </span>
+
+                <p class="shortcomment cmt">Returns the state to switch to from current given the stream of tokens</p>
+                <div class="fullcomment">
+                  <div class="comment cmt"><p>Returns the state to switch to from current given the stream of tokens</p>
+                  </div>
+                  <dl class="paramcmts block">
+                    <dt class="param">tokens</dt>
+                    <dd class="cmt"><p>stream of tokens</p></dd>
+                    <dt>returns</dt>
+                    <dd class="cmt"><p>next state</p></dd>
+                  </dl>
+                  <dl class="attributes block">
+                    <dt>Definition Classes</dt>
+                    <dd><a href="" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.StillNotSureIfQuotedState">StillNotSureIfQuotedState</a>
+                      → <a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
+                  </dl>
+                </div>
+              </li>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState#nextStream" visbl="pub"
+                  class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+                <a id="nextStream(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):Stream[ImmutableLexer.this.LexerState]"></a><a
+                  id="nextStream(Stream[Token[T]]):Stream[LexerState]"></a>
+                <span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#nextStream(tokens:Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]]):Stream[ImmutableLexer.this.LexerState]"
+         title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+                <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+                <span class="symbol">
+        <span class="name">nextStream</span><span class="params">(<span name="tokens">tokens: <span class="extype"
+                                                                                                    name="scala.Stream">Stream</span>[<a
+                    href="../tokenizer/Token.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.tokenizer.Token">Token</a>[<span class="extype"
+                                                                                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]]</span>)</span><span
+                    class="result">: <span class="extype" name="scala.Stream">Stream</span>[<a
+                    href="ImmutableLexer$LexerState.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a>]</span>
+      </span>
+
+                <p class="shortcomment cmt">Transforms stream of tokens to the stream of states</p>
+                <div class="fullcomment">
+                  <div class="comment cmt"><p>Transforms stream of tokens to the stream of states</p></div>
+                  <dl class="paramcmts block">
+                    <dt class="param">tokens</dt>
+                    <dd class="cmt"><p>stream of tokens</p></dd>
+                    <dt>returns</dt>
+                    <dd class="cmt"><p>stream of lexer states</p></dd>
+                  </dl>
+                  <dl class="attributes block">
+                    <dt>Definition Classes</dt>
+                    <dd><a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
+                  </dl>
+                </div>
+              </li>
               <li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes"
                   group="Ungrouped">
                 <a id="notify():Unit"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#notify():Unit"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#notify():Unit"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -775,7 +980,7 @@
                   group="Ungrouped">
                 <a id="notifyAll():Unit"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#notifyAll():Unit"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#notifyAll():Unit"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -803,11 +1008,43 @@
                   </dl>
                 </div>
               </li>
+              <li name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState#recordSeparator" visbl="pub"
+                  class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+                <a id="recordSeparator:PartialFunction[Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]],ImmutableLexer.this.LexerState]"></a><a
+                  id="recordSeparator:PartialFunction[Stream[Token[T]],LexerState]"></a>
+                <span class="permalink">
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#recordSeparator:PartialFunction[Stream[ua.kyiv.tinedel.csvparser.tokenizer.Token[T]],ImmutableLexer.this.LexerState]"
+         title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+                <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+                <span class="symbol">
+        <span class="name">recordSeparator</span><span class="result">: <span class="extype"
+                                                                              name="scala.PartialFunction">PartialFunction</span>[<span
+                    class="extype" name="scala.Stream">Stream</span>[<a href="../tokenizer/Token.html" class="extype"
+                                                                        name="ua.kyiv.tinedel.csvparser.tokenizer.Token">Token</a>[<span
+                    class="extype" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.T">T</span>]], <a
+                    href="ImmutableLexer$LexerState.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a>]</span>
+      </span>
+
+                <div class="fullcomment">
+                  <dl class="attributes block">
+                    <dt>Definition Classes</dt>
+                    <dd><a href="ImmutableLexer$LexerState.html" class="extype"
+                           name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a></dd>
+                  </dl>
+                </div>
+              </li>
               <li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes"
                   group="Ungrouped">
                 <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#synchronized[T0](x$1:=&gt;T0):T0"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#synchronized[T0](x$1:=&gt;T0):T0"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -834,7 +1071,7 @@
                   group="Ungrouped">
                 <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#wait(x$1:Long,x$2:Int):Unit"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#wait(x$1:Long,x$2:Int):Unit"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -869,7 +1106,7 @@
                   group="Ungrouped">
                 <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#wait(x$1:Long):Unit"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#wait(x$1:Long):Unit"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -905,7 +1142,7 @@
                   group="Ungrouped">
                 <a id="wait():Unit"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#wait():Unit"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#wait():Unit"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -945,7 +1182,7 @@
                   group="Ungrouped">
                 <a id="finalize():Unit"></a>
                 <span class="permalink">
-      <a href="../../../../../ua/kyiv/tinedel/csvparser/lexer/GenericCSVLexer$MaybeQuotedState$.html#finalize():Unit"
+      <a href="../../../../../ua/kyiv/tinedel/csvparser/immutable/ImmutableLexer$StillNotSureIfQuotedState.html#finalize():Unit"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -1001,9 +1238,10 @@
           <div class="parent" name="scala.Equals">
             <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
           </div>
-          <div class="parent" name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.LexerState">
-            <h3>Inherited from <a href="GenericCSVLexer$LexerState.html" class="extype"
-                                  name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer.LexerState">LexerState</a></h3>
+          <div class="parent" name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">
+            <h3>Inherited from <a href="ImmutableLexer$LexerState.html" class="extype"
+                                  name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer.LexerState">LexerState</a>
+            </h3>
           </div>
           <div class="parent" name="scala.AnyRef">
             <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>

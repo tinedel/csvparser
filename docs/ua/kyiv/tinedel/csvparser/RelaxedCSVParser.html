@@ -165,6 +165,53 @@
               </dl>
             </div>
           </li>
+          <li name="ua.kyiv.tinedel.csvparser.immutable" visbl="pub" class="indented5 " data-isabs="false"
+              fullComment="yes" group="Ungrouped">
+            <a id="immutable"></a><a id="immutable:immutable"></a>
+            <span class="permalink">
+      <a href="../../../../ua/kyiv/tinedel/csvparser/immutable/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+            <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+            <span class="symbol">
+        <a title="Immutable CSV parser and which relies on immutable tokenizer and lexer to perform the job"
+           href="immutable/index.html"><span class="name">immutable</span></a>
+      </span>
+
+            <p class="shortcomment cmt">Immutable CSV parser and which relies on immutable tokenizer and lexer to
+              perform the job</p>
+            <div class="fullcomment">
+              <div class="comment cmt"><p>Immutable CSV parser and which relies on immutable tokenizer and lexer to
+                perform the job</p>
+                <p><a href="immutable/ImmutableTokenizer.html" class="extype"
+                      name="ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer">ImmutableTokenizer</a> - Takes input
+                  <span class="extype" name="scala.io.Source">scala.io.Source</span> and splits it into tokens
+                  <a href="immutable/ImmutableLexer.html" class="extype"
+                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer">ImmutableLexer</a> - Processes CSV
+                  grammar to get stream of lexems according to csv standard
+                  <a href="immutable/ImmutableParser.html" class="extype"
+                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableParser">ImmutableParser</a> - Finalizes the
+                  processing producing <span class="extype" name="Map">Map</span> of field number (1-based) to field
+                  content</p>
+                <p>Instances of Lexer and Parser are capable of taking non-string Streams to implement parsers with
+                  smaller memory
+                  consumption for the case of huge values in the cells.
+                </p></div>
+              <dl class="attributes block">
+                <dt>Definition Classes</dt>
+                <dd><a href="index.html" class="extype" name="ua.kyiv.tinedel.csvparser">csvparser</a></dd>
+                <dt>See also</dt>
+                <dd><span class="cmt"><p><a href="lexer/GenericCSVLexer.html" class="extype"
+                                            name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer">ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer</a>, <a
+                    href="MinimalMemoryCSVParser.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.MinimalMemoryCSVParser">MinimalMemoryCSVParser</a></p></span></dd>
+              </dl>
+            </div>
+          </li>
           <li name="ua.kyiv.tinedel.csvparser.lexer" visbl="pub" class="indented5 " data-isabs="false" fullComment="yes"
               group="Ungrouped">
             <a id="lexer"></a><a id="lexer:lexer"></a>
@@ -234,6 +281,11 @@
                title="Relaxed csv parser trying to make as much sense of lexemes provided by lexer as possible."></a>
             <a href=""
                title="Relaxed csv parser trying to make as much sense of lexemes provided by lexer as possible.">RelaxedCSVParser</a>
+          </li>
+          <li class="current-entities indented4">
+            <span class="separator"></span>
+            <a class="object" href="TestApp$.html" title=""></a>
+            <a href="TestApp$.html" title="">TestApp</a>
           </li>
         </ul>
       </div>
@@ -364,10 +416,10 @@ nr1,nr2</pre>
             <ol>
               <li name="ua.kyiv.tinedel.csvparser.RelaxedCSVParser#&lt;init&gt;" visbl="pub" class="indented0 "
                   data-isabs="false" fullComment="yes" group="Ungrouped">
-                <a id="&lt;init&gt;(lexer:ua.kyiv.tinedel.csvparser.lexer.Lexer[String],header:Boolean):ua.kyiv.tinedel.csvparser.RelaxedCSVParser"></a><a
+                <a id="&lt;init&gt;(lexer:Iterator[ua.kyiv.tinedel.csvparser.lexer.Lexeme[String]],header:Boolean):ua.kyiv.tinedel.csvparser.RelaxedCSVParser"></a><a
                   id="&lt;init&gt;:RelaxedCSVParser"></a>
                 <span class="permalink">
-      <a href="../../../../ua/kyiv/tinedel/csvparser/RelaxedCSVParser.html#&lt;init&gt;(lexer:ua.kyiv.tinedel.csvparser.lexer.Lexer[String],header:Boolean):ua.kyiv.tinedel.csvparser.RelaxedCSVParser"
+      <a href="../../../../ua/kyiv/tinedel/csvparser/RelaxedCSVParser.html#&lt;init&gt;(lexer:Iterator[ua.kyiv.tinedel.csvparser.lexer.Lexeme[String]],header:Boolean):ua.kyiv.tinedel.csvparser.RelaxedCSVParser"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -377,10 +429,12 @@ nr1,nr2</pre>
         <span class="kind">new</span>
       </span>
                 <span class="symbol">
-        <span class="name">RelaxedCSVParser</span><span class="params">(<span name="lexer">lexer: <a
-                    href="lexer/Lexer.html" class="extype" name="ua.kyiv.tinedel.csvparser.lexer.Lexer">Lexer</a>[<span
-                    class="extype" name="scala.Predef.String">String</span>]</span>, <span name="header">header: <span
-                    class="extype" name="scala.Boolean">Boolean</span> = <span
+        <span class="name">RelaxedCSVParser</span><span class="params">(<span name="lexer">lexer: <span class="extype"
+                                                                                                        name="scala.Iterator">Iterator</span>[<a
+                    href="lexer/Lexeme.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.lexer.Lexeme">Lexeme</a>[<span class="extype"
+                                                                                   name="scala.Predef.String">String</span>]]</span>, <span
+                    name="header">header: <span class="extype" name="scala.Boolean">Boolean</span> = <span
                     class="symbol">false</span></span>)</span>
       </span>
 
@@ -1905,9 +1959,10 @@ nr1,nr2</pre>
               </li>
               <li name="ua.kyiv.tinedel.csvparser.RelaxedCSVParser#lexer" visbl="pub" class="indented0 "
                   data-isabs="false" fullComment="no" group="Ungrouped">
-                <a id="lexer:ua.kyiv.tinedel.csvparser.lexer.Lexer[String]"></a><a id="lexer:Lexer[String]"></a>
+                <a id="lexer:Iterator[ua.kyiv.tinedel.csvparser.lexer.Lexeme[String]]"></a><a
+                  id="lexer:Iterator[Lexeme[String]]"></a>
                 <span class="permalink">
-      <a href="../../../../ua/kyiv/tinedel/csvparser/RelaxedCSVParser.html#lexer:ua.kyiv.tinedel.csvparser.lexer.Lexer[String]"
+      <a href="../../../../ua/kyiv/tinedel/csvparser/RelaxedCSVParser.html#lexer:Iterator[ua.kyiv.tinedel.csvparser.lexer.Lexeme[String]]"
          title="Permalink">
         <i class="material-icons"></i>
       </a>
@@ -1917,9 +1972,10 @@ nr1,nr2</pre>
         <span class="kind">val</span>
       </span>
                 <span class="symbol">
-        <span class="name">lexer</span><span class="result">: <a href="lexer/Lexer.html" class="extype"
-                                                                 name="ua.kyiv.tinedel.csvparser.lexer.Lexer">Lexer</a>[<span
-                    class="extype" name="scala.Predef.String">String</span>]</span>
+        <span class="name">lexer</span><span class="result">: <span class="extype" name="scala.Iterator">Iterator</span>[<a
+                    href="lexer/Lexeme.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.lexer.Lexeme">Lexeme</a>[<span class="extype"
+                                                                                   name="scala.Predef.String">String</span>]]</span>
       </span>
 
 

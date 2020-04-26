@@ -587,11 +587,12 @@
                     class="extype" name="ua.kyiv.tinedel.csvparser.tokenizer.Trie.T">T</span>]</span>
       </span>
 
-                <p class="shortcomment cmt">Creates a copy of this Trie with string <code>s</code> being added
-                </p>
+                <p class="shortcomment cmt">Creates a copy of this Trie with string <code>s</code> being added</p>
                 <div class="fullcomment">
-                  <div class="comment cmt"><p>Creates a copy of this Trie with string <code>s</code> being added
-                  </p></div>
+                  <div class="comment cmt"><p>Creates a copy of this Trie with string <code>s</code> being added</p>
+                    <p>Not tailrec as it is going to be used once at the start of the tokenizing
+                      And lengthy tokens are unlikely, so it's possible to keep it simple
+                    </p></div>
                   <dl class="paramcmts block">
                     <dt class="param">s</dt>
                     <dd class="cmt"><p>string to add implicitly converted to Seq[Char] to descent easier</p></dd>

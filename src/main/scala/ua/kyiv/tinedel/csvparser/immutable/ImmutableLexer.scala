@@ -5,12 +5,28 @@ import ua.kyiv.tinedel.csvparser.tokenizer._
 
 import scala.collection.immutable.Stream.Empty
 
-
+/**
+ * Immutable lexer. Takes Stream of tokens and produces stream of lexemes
+ *
+ * @param tokenMap used to convert token back to its representation in case if it's actually quoted
+ * @param z        zero value of the type being used as a token value.
+ *                 Allows to operate on non-String implementations of tokenizer
+ * @param concat   function to concatenate instances of [[T]].
+ *                 Allows to operate on non-String implementations of [[T]]
+ * @tparam T represent the type of value. Most useful is string but allows to build minimal memory version which would
+ *           support cells of any size.
+ */
 class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
                         val z: T,
                         val concat: (T, T) => T) extends Lexer[T] {
 
 
+  /**
+   * Produces stream of Lexemes from stream of tokens according to CSV standard
+   *
+   * @param tokens stream of tokens
+   * @return stream of lexemes
+   */
   final override def lexemesStream(tokens: Stream[Token[T]]): Stream[Lexeme[T]] = {
     InitialState().nextStream(tokens)
       .takeWhile({
@@ -23,12 +39,25 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
       }).flatten
   }
 
+  /**
+   * Immutable lexer state, can produce next state from given Token
+   * Implements nextStream function returning stream of states from given stream of tokens
+   *
+   * Based on slightly simplified FSA, similar to one in [[GenericCSVLexer]]
+   * InitialState in this FSA is merged with BlockState, as there's no need to have both.
+   */
   sealed trait LexerState {
 
     def buffer: List[Block[T]]
 
     def lexemes: List[Lexeme[T]] = Nil
 
+    /**
+     * Produces field from reversed list of blocks, or empty list if no blocks were collected.
+     *
+     * @param tokens reversed list of blocks.
+     * @return List of zero or one fields built from the blocks.
+     */
     protected def concatBlocks(tokens: List[Block[T]]): List[Field[T]] = {
       tokens
         .map {
@@ -51,8 +80,20 @@ class ImmutableLexer[T](val tokenMap: Map[Token[_], T],
       case RecordSeparator #:: tail => InitialState(Nil, concatBlocks(buffer) :+ RecordBreak)
     }
 
-    def nextState(tokens: Stream[Token[T]]): LexerState
+    /**
+     * Returns the state to switch to from current given the stream of tokens
+     *
+     * @param tokens stream of tokens
+     * @return next state
+     */
+    protected def nextState(tokens: Stream[Token[T]]): LexerState
 
+    /**
+     * Transforms stream of tokens to the stream of states
+     *
+     * @param tokens stream of tokens
+     * @return stream of lexer states
+     */
     final def nextStream(tokens: Stream[Token[T]]): Stream[LexerState] = {
       val ns = nextState(tokens)
       ns match {
@@ -181,7 +222,7 @@ object ImmutableLexer {
             fieldSeparator: String = ",",
             escapeString: Option[String] = Some("\\")): ImmutableLexer[String] = {
     new ImmutableLexer[String](Map(QuotationMark -> quotingString,
-      FieldSeparator -> fieldSeparator, RecordSeparator -> recordSeparator) ++ escapeString.map(es => Escape -> es).toMap,
-      "", _ + _)
+      FieldSeparator -> fieldSeparator,
+      RecordSeparator -> recordSeparator) ++ escapeString.map(es => Escape -> es).toMap, "", _ + _)
   }
 }

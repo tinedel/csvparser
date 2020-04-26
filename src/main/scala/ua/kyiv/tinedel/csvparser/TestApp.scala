@@ -47,7 +47,11 @@ object TestApp {
     println("Time to parse: %02d:%02d:%02d".format(inTime.toHours, inTime.toMinutes % 60, inTime.toSeconds % 60))
 
     val secondsPassed = inTime.toSeconds
-    println(s"Overall performance: ${records / secondsPassed} r/s ${fields / secondsPassed} f/s")
+    if (secondsPassed == 0) {
+      println("Processed very fast")
+    } else {
+      println(s"Overall performance: ${records / secondsPassed} r/s ${fields / secondsPassed} f/s")
+    }
   }
 
   // taken from https://stackoverflow.com/questions/35609587/human-readable-size-units-file-sizes-for-scala-code-like-duration

@@ -165,6 +165,53 @@
               </dl>
             </div>
           </li>
+          <li name="ua.kyiv.tinedel.csvparser.immutable" visbl="pub" class="indented5 " data-isabs="false"
+              fullComment="yes" group="Ungrouped">
+            <a id="immutable"></a><a id="immutable:immutable"></a>
+            <span class="permalink">
+      <a href="../../../../ua/kyiv/tinedel/csvparser/immutable/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+            <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+            <span class="symbol">
+        <a title="Immutable CSV parser and which relies on immutable tokenizer and lexer to perform the job"
+           href="immutable/index.html"><span class="name">immutable</span></a>
+      </span>
+
+            <p class="shortcomment cmt">Immutable CSV parser and which relies on immutable tokenizer and lexer to
+              perform the job</p>
+            <div class="fullcomment">
+              <div class="comment cmt"><p>Immutable CSV parser and which relies on immutable tokenizer and lexer to
+                perform the job</p>
+                <p><a href="immutable/ImmutableTokenizer.html" class="extype"
+                      name="ua.kyiv.tinedel.csvparser.immutable.ImmutableTokenizer">ImmutableTokenizer</a> - Takes input
+                  <span class="extype" name="scala.io.Source">scala.io.Source</span> and splits it into tokens
+                  <a href="immutable/ImmutableLexer.html" class="extype"
+                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableLexer">ImmutableLexer</a> - Processes CSV
+                  grammar to get stream of lexems according to csv standard
+                  <a href="immutable/ImmutableParser.html" class="extype"
+                     name="ua.kyiv.tinedel.csvparser.immutable.ImmutableParser">ImmutableParser</a> - Finalizes the
+                  processing producing <span class="extype" name="Map">Map</span> of field number (1-based) to field
+                  content</p>
+                <p>Instances of Lexer and Parser are capable of taking non-string Streams to implement parsers with
+                  smaller memory
+                  consumption for the case of huge values in the cells.
+                </p></div>
+              <dl class="attributes block">
+                <dt>Definition Classes</dt>
+                <dd><a href="index.html" class="extype" name="ua.kyiv.tinedel.csvparser">csvparser</a></dd>
+                <dt>See also</dt>
+                <dd><span class="cmt"><p><a href="lexer/GenericCSVLexer.html" class="extype"
+                                            name="ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer">ua.kyiv.tinedel.csvparser.lexer.GenericCSVLexer</a>, <a
+                    href="MinimalMemoryCSVParser.html" class="extype"
+                    name="ua.kyiv.tinedel.csvparser.MinimalMemoryCSVParser">MinimalMemoryCSVParser</a></p></span></dd>
+              </dl>
+            </div>
+          </li>
           <li name="ua.kyiv.tinedel.csvparser.lexer" visbl="pub" class="indented5 " data-isabs="false" fullComment="yes"
               group="Ungrouped">
             <a id="lexer"></a><a id="lexer:lexer"></a>
@@ -233,6 +280,11 @@
                title="Relaxed csv parser trying to make as much sense of lexemes provided by lexer as possible."></a>
             <a href="RelaxedCSVParser.html"
                title="Relaxed csv parser trying to make as much sense of lexemes provided by lexer as possible.">RelaxedCSVParser</a>
+          </li>
+          <li class="current-entities indented4">
+            <span class="separator"></span>
+            <a class="object" href="TestApp$.html" title=""></a>
+            <a href="TestApp$.html" title="">TestApp</a>
           </li>
         </ul>
       </div>
